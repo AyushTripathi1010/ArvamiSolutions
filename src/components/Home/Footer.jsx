@@ -19,7 +19,7 @@ const Footer = () => {
           {/* <div className="footer-logo-wrapper flex justify-center mb-4">
             <img src={logo} alt="Arvami Logo" className="footer-logo h-12" />
           </div> */}
-          <h2 className="footer-title text-4xl font-bold mb-2">ARVAMI</h2>
+          <h2 className="footer-title text-[20px] font-bold mb-2">ARVAMI</h2>
           <p className="footer-description max-w-2xl mx-auto text-gray-400">
             For more than three decades, we've been applying the right teams,
             strategies, and technology to help our clients stay aligned
@@ -171,7 +171,7 @@ const Footer = () => {
           }
           
           .footer-title {
-            font-size: 3.5rem !important;
+            font-size: 1.5rem ;
           }
           
           .footer-description {
@@ -194,16 +194,16 @@ const Footer = () => {
           }
           
           .footer-title {
-            font-size: 3.75rem !important;
+            font-size: 2rem;
           }
           
           .footer-description {
-            font-size: 1.25rem !important;
+            font-size: 1.1rem ;
             max-width: 75%;
           }
           
           .footer-social-links {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
           }
           
           .social-icon {
@@ -232,7 +232,7 @@ const Footer = () => {
           }
           
           .footer-title {
-            font-size: 4rem !important;
+            font-size: 3rem !important;
             margin-bottom: 1rem;
           }
           

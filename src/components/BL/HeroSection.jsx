@@ -17,7 +17,7 @@ const HeroSection = () => {
       }}></div>
 
       {/* Handshake image */}
-      <div className="handshake-wrapper absolute right-[6%] top-48 transform -translate-y-1/2 opacity-80 hidden lg:block handshake-image">
+      <div className="handshake-wrapper absolute right-[6%] top-48 transform -translate-y-1/2 opacity-25 hidden lg:block handshake-image">
         <img
           src={blImg16}
           alt="Handshake"
@@ -26,7 +26,7 @@ const HeroSection = () => {
       </div>
 
       {/* Document image */}
-      <div className="document-wrapper absolute right-[-3%] bottom-8 opacity-80 hidden lg:block transform -rotate-[30deg] document-image">
+      <div className="document-wrapper absolute right-[-20%] bottom-8 opacity-25 hidden lg:block transform -rotate-[45deg] document-image">
         <img
           src={blImg17}
           alt="Document"
@@ -181,7 +181,7 @@ const HeroSection = () => {
           }
           
           .document-image {
-            right: -3%;
+            right: -6%;
             bottom: 6%;
           }
           
@@ -243,7 +243,7 @@ const HeroSection = () => {
           }
           
           .document-image {
-            right: -2%;
+            right: -6%;
             bottom: 8%;
           }
           

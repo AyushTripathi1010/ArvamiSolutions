@@ -111,7 +111,7 @@ const Section4 = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute bottom-4 right-4 bg-blue-500 rounded-full p-2 text-white transform -rotate-45"
+                  className="absolute bottom-4 right-4 bg-blue-500 rounded-full p-2 text-white transform -rotate-45 hover:scale-125 transition-transform ease-in-out"
                 >
                   <ArrowRight size={20} />
                 </a>

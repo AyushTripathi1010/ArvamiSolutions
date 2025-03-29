@@ -73,36 +73,43 @@ const ServicesSection = () => {
   };
 
   return (
-    <div className="services-section py-20" style={{ backgroundColor: "#000322" }}>
-      <div className="services-container container mx-auto px-6" style={{ paddingLeft: '3%', paddingRight: '3%' }}>
-        <h2 className="services-title text-3xl font-bold text-white text-center mb-16">How We Can Help?</h2>
+    <div className="bl-services-section py-20" style={{ backgroundColor: "#000322" }}>
+      <div className="bl-services-container container mx-auto px-6" style={{ paddingLeft: '3%', paddingRight: '3%' }}>
+        <h2 className="bl-services-title text-3xl font-bold text-white text-center mb-16">How We Can Help?</h2>
 
         {/* Grid for first 6 services (3x2) */}
-        <div className="services-grid grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
-          {services.map((service) => ( 
-            <div key={service.id} className="service-card bg-navy-800 rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-2xl border border-s-white flex flex-col" style={{ backgroundColor: "#000322" }}>
-              <div className="service-image-container h-60 overflow-hidden">
+        <div className="bl-services-grid grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="bl-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%]"
+              style={{
+                backgroundColor: "#000322",
+                boxShadow: "0px 0px 20px 10px rgba(60,31,122,1)"
+              }}
+            >
+              <div className="bl-service-image-container h-52 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="service-image w-full h-full object-cover"
+                  className="bl-service-image w-full h-full object-cover"
                 />
               </div>
-              <div className="service-content p-6 flex flex-col flex-grow">
-                <h3 className="service-title text-xl font-bold text-white mb-4">{service.title}</h3>
+              <div className="bl-service-content p-6 flex flex-col flex-grow">
+                <h3 className="bl-service-title font-bold text-white mb-4" style={{ fontSize: '20px' }}>{service.title}</h3>
                 {service.listStyle ? (
-                  <ul className="service-description-list text-gray-300 mb-6 space-y-2 flex-grow">
-                    <li className="service-description-item flex items-start">
-                      <span className="service-bullet mr-2">•</span>
-                      <span className="service-description-text">{service.description}</span>
+                  <ul className="bl-service-description-list text-gray-300 mb-6 space-y-2 flex-grow">
+                    <li className="bl-service-description-item flex items-start">
+                      <span className="bl-service-bullet mr-2">•</span>
+                      <span className="bl-service-description-text">{service.description}</span>
                     </li>
                   </ul>
                 ) : (
-                  <p className="service-description text-gray-300 mb-6 flex-grow">{service.description}</p>
+                  <p className="bl-service-description text-gray-300 mb-6 flex-grow">{service.description}</p>
                 )}
                 <Link
                   to={service.link}
-                  className="service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
+                  className="bl-service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
                 >
                   {service.action}
                 </Link>
@@ -112,26 +119,32 @@ const ServicesSection = () => {
         </div>
 
         {/* Center service card - 7th card */}
-        <div className="center-service-wrapper flex justify-center">
-          <div className="center-service-card bg-navy-800 rounded-xl overflow-hidden shadow-lg max-w-md transition duration-300 hover:shadow-2xl border border-s-white flex flex-col" style={{ backgroundColor: "#000322" }}>
-            <div className="center-service-image-container h-60 overflow-hidden">
+        <div className="bl-center-service-wrapper flex justify-center">
+          <div
+            className="bl-center-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 flex flex-col pb-10 w-[60%]"
+            style={{
+              backgroundColor: "#000322",
+              boxShadow: "0px 0px 20px 10px rgba(60,31,122,1)"
+            }}
+          >
+            <div className="bl-center-service-image-container h-52 overflow-hidden">
               <img
                 src={centerService.image}
                 alt={centerService.title}
-                className="center-service-image w-full h-full object-cover"
+                className="bl-center-service-image w-full h-full object-cover"
               />
             </div>
-            <div className="center-service-content p-6 flex flex-col flex-grow">
-              <h3 className="center-service-title text-xl font-bold text-white mb-4">{centerService.title}</h3>
-              <ul className="center-service-description-list text-gray-300 mb-6 space-y-2 flex-grow">
-                <li className="center-service-description-item flex items-start">
-                  <span className="center-service-bullet mr-2">•</span>
-                  <span className="center-service-description-text">{centerService.description}</span>
+            <div className="bl-center-service-content p-6 flex flex-col flex-grow">
+              <h3 className="bl-center-service-title font-bold text-white mb-4" style={{ fontSize: '20px' }}>{centerService.title}</h3>
+              <ul className="bl-center-service-description-list text-gray-300 mb-6 space-y-2 flex-grow">
+                <li className="bl-center-service-description-item flex items-start">
+                  <span className="bl-center-service-bullet mr-2">•</span>
+                  <span className="bl-center-service-description-text">{centerService.description}</span>
                 </li>
               </ul>
               <Link
                 to={centerService.link}
-                className="center-service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
+                className="bl-center-service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
               >
                 {centerService.action}
               </Link>
@@ -142,268 +155,353 @@ const ServicesSection = () => {
 
       {/* Add responsive styling */}
       <style jsx>{`
-        /* For mobile devices (up to 767px) */
-        @media (max-width: 767px) {
-          .services-section {
+        /* For mobile devices (up to 639px) */
+        @media (max-width: 639px) {
+          .bl-services-section {
             padding-top: 3rem;
             padding-bottom: 3rem;
           }
           
-          .services-title {
-            font-size: 24px !important;
+          .bl-services-title {
+            font-size: 1.75rem !important;
             margin-bottom: 2rem;
           }
           
-          .service-title, 
-          .center-service-title {
+          .bl-service-card, .bl-center-service-card {
+            width: 100% !important;
+            margin-bottom: 2rem;
+          }
+          
+          .bl-service-image-container, .bl-center-service-image-container {
+            height: 200px;
+          }
+          
+          .bl-service-title, .bl-center-service-title {
+            font-size: 16px !important;
+            margin-bottom: 0.5rem;
+          }
+          
+          .bl-service-description, .bl-service-description-text, .bl-center-service-description-text {
+            font-size: 0.875rem !important;
+            margin-bottom: 1rem;
+          }
+          
+          .bl-service-link, .bl-center-service-link {
+            font-size: 0.75rem !important;
+          }
+          
+          .bl-service-content, .bl-center-service-content {
+            padding: 1rem;
+          }
+        }
+        
+        /* For medium mobile devices (640px - 767px) */
+        @media (min-width: 640px) and (max-width: 767px) {
+          .bl-services-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+          }
+          
+          .bl-services-title {
+            font-size: 2rem !important;
+            margin-bottom: 2.5rem;
+          }
+          
+          .bl-service-card, .bl-center-service-card {
+            width: 100% !important;
+            margin-bottom: 2rem;
+          }
+          
+          .bl-service-image-container, .bl-center-service-image-container {
+            height: 225px;
+          }
+          
+          .bl-service-title, .bl-center-service-title {
             font-size: 18px !important;
           }
           
-          .service-description, 
-          .service-description-text,
-          .center-service-description-text {
-            font-size: 14px !important;
+          .bl-service-description, .bl-service-description-text, .bl-center-service-description-text {
+            font-size: 1rem !important;
           }
           
-          .service-link,
-          .center-service-link {
-            font-size: 12px !important;
+          .bl-service-content, .bl-center-service-content {
+            padding: 1.5rem;
           }
           
-          .services-grid {
-            gap: 2rem;
-          }
-          
-          .service-image-container,
-          .center-service-image-container {
-            height: 180px;
-          }
-          
-          .service-content,
-          .center-service-content {
-            padding: 1rem;
+          .bl-center-service-card {
+            width: 90% !important;
           }
         }
         
         /* For tablets (768px - 1023px) */
         @media (min-width: 768px) and (max-width: 1023px) {
-          .services-section {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-          }
-          
-          .services-title {
-            font-size: 28px !important;
-            margin-bottom: 2.5rem;
-          }
-          
-          .service-title, 
-          .center-service-title {
-            font-size: 20px !important;
-          }
-          
-          .service-description, 
-          .service-description-text,
-          .center-service-description-text {
-            font-size: 15px !important;
-          }
-          
-          .services-grid {
-            gap: 1.5rem;
-          }
-          
-          .service-image-container,
-          .center-service-image-container {
-            height: 200px;
-          }
-        }
-        
-        /* For smaller laptops (1024px - 1366px) */
-        @media (min-width: 1024px) and (max-width: 1366px) {
-          .services-title {
-            font-size: 30px !important;
-            margin-bottom: 3rem;
-          }
-          
-          .service-title, 
-          .center-service-title {
-            font-size: 20px !important;
-          }
-          
-          .service-description, 
-          .service-description-text,
-          .center-service-description-text {
-            font-size: 15px !important;
-          }
-          
-          .services-grid {
-            gap: 2rem;
-          }
-        }
-        
-        /* For medium laptops and desktops (1367px - 1999px) */
-        @media (min-width: 1367px) and (max-width: 1999px) {
-          .services-title {
-            font-size: 36px !important;
-            margin-bottom: 3.5rem;
-          }
-          
-          .service-title, 
-          .center-service-title {
-            font-size: 22px !important;
-          }
-          
-          .service-description, 
-          .service-description-text,
-          .center-service-description-text {
-            font-size: 16px !important;
-          }
-        }
-        
-        /* For larger screens (2000px and above) */
-        @media (min-width: 2000px) {
-          .services-section {
+          .bl-services-section {
             padding-top: 5rem;
             padding-bottom: 5rem;
           }
           
-          .services-container {
-            max-width: 80%;
-            margin: 0 auto;
+          .bl-services-title {
+            font-size: 2.25rem !important;
+            margin-bottom: 3rem;
           }
           
-          .services-title {
-            font-size: 48px !important;
-            margin-bottom: 4rem;
+          .bl-services-grid {
+            gap: 1.5rem;
           }
           
-          .service-title, 
-          .center-service-title {
-            font-size: 28px !important;
-            margin-bottom: 1.5rem;
+          .bl-service-card {
+            width: 100% !important;
           }
           
-          .service-description, 
-          .service-description-text,
-          .center-service-description-text {
-            font-size: 18px !important;
+          .bl-service-image-container, .bl-center-service-image-container {
+            height: 250px;
           }
           
-          .service-link,
-          .center-service-link {
+          .bl-service-title, .bl-center-service-title {
             font-size: 16px !important;
           }
           
-          .service-content,
-          .center-service-content {
-            padding: 2rem;
+          .bl-service-description, .bl-service-description-text, .bl-center-service-description-text {
+            font-size: 0.875rem !important;
           }
           
-          .service-image-container,
-          .center-service-image-container {
-            height: 300px;
-          }
-          
-          .center-service-card {
-            max-width: 600px;
+          .bl-center-service-card {
+            width: 80% !important;
           }
         }
         
-        /* For extra-large screens (3000px and above) */
-        @media (min-width: 3000px) {
-          .services-section {
+        /* For smaller laptops (1024px - 1279px) */
+        @media (min-width: 1024px) and (max-width: 1279px) {
+          .bl-services-section {
+            padding-top: 5.5rem;
+            padding-bottom: 5.5rem;
+          }
+          
+          .bl-services-title {
+            font-size: 2.5rem !important;
+            margin-bottom: 3.5rem;
+          }
+          
+          .bl-services-grid {
+            gap: 2rem;
+          }
+          
+          .bl-service-title, .bl-center-service-title {
+            font-size: 18px !important;
+          }
+          
+          .bl-service-description, .bl-service-description-text, .bl-center-service-description-text {
+            font-size: 1rem !important;
+          }
+          
+          .bl-center-service-card {
+            width: 70% !important;
+          }
+        }
+        
+        /* For medium laptops (1280px - 1535px) */
+        @media (min-width: 1280px) and (max-width: 1535px) {
+          .bl-services-section {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+          }
+          
+          .bl-services-container {
+            max-width: 90%;
+          }
+          
+          .bl-services-title {
+            font-size: 2.75rem !important;
+            margin-bottom: 4rem;
+          }
+          
+          .bl-service-image-container, .bl-center-service-image-container {
+            height: 210px;
+          }
+          
+          .bl-service-title, .bl-center-service-title {
+            font-size: 22px !important;
+          }
+
+          .bl-center-service-card{
+             width:31%;
+          }
+          
+          
+        }
+        
+        /* For desktop screens (1536px - 1919px) */
+        @media (min-width: 1536px) and (max-width: 1919px) {
+          .bl-services-section {
             padding-top: 7rem;
             padding-bottom: 7rem;
           }
           
-          .services-container {
-            max-width: 70%;
+          .bl-services-container {
+            max-width: 95%;
           }
           
-          .services-title {
-            font-size: 60px !important;
-            margin-bottom: 5rem;
+          .bl-services-title {
+            font-size: 3rem !important;
+            margin-bottom: 4.5rem;
           }
           
-          .service-title, 
-          .center-service-title {
-            font-size: 36px !important;
-            margin-bottom: 2rem;
+          .bl-services-grid {
+            gap: 2.5rem;
           }
           
-          .service-description, 
-          .service-description-text,
-          .center-service-description-text {
+          .bl-service-image-container, .bl-center-service-image-container {
+            height: 210px;
+          }
+          .bl-center-service-card{
+             width:31%;
+          }
+          
+          .bl-service-title, .bl-center-service-title {
             font-size: 24px !important;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
           }
           
-          .service-link,
-          .center-service-link {
-            font-size: 20px !important;
+          .bl-service-description, .bl-service-description-text, .bl-center-service-description-text {
+            font-size: 1.125rem !important;
+            margin-bottom: 1.5rem;
           }
           
-          .service-content,
-          .center-service-content {
-            padding: 3rem;
-          }
-          
-          .service-image-container,
-          .center-service-image-container {
-            height: 400px;
-          }
-          
-          .center-service-card {
-            max-width: 800px;
+          .bl-service-link, .bl-center-service-link {
+            font-size: 1rem !important;
           }
         }
         
-        /* For ultra-wide screens (4000px and above) */
-        @media (min-width: 4000px) {
-          .services-section {
+        /* For large screens (1920px - 2559px) */
+        @media (min-width: 1920px) and (max-width: 2559px) {
+          .bl-services-section {
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+          }
+          
+          .bl-services-container {
+            max-width: 100%;
+          }
+          
+          .bl-services-title {
+            font-size: 3.5rem !important;
+            margin-bottom: 5rem;
+          }
+          
+          .bl-services-grid {
+            gap: 3rem;
+          }
+          
+          .bl-service-image-container, .bl-center-service-image-container {
+            height: 300px;
+          }
+          
+          .bl-service-content, .bl-center-service-content {
+            padding: 2rem;
+          }
+          
+          .bl-service-title, .bl-center-service-title {
+            font-size: 28px !important;
+            margin-bottom: 1.25rem;
+          }
+
+          .bl-center-service-card{
+             width:31%;
+          }
+          
+          .bl-service-description, .bl-service-description-text, .bl-center-service-description-text {
+            font-size: 1.25rem !important;
+            margin-bottom: 2rem;
+          }
+          
+          .bl-service-link, .bl-center-service-link {
+            font-size: 1.125rem !important;
+          }
+        }
+        
+        /* For extra large screens (2560px - 3839px) */
+        @media (min-width: 2560px) and (max-width: 3839px) {
+          .bl-services-section {
             padding-top: 10rem;
             padding-bottom: 10rem;
           }
           
-          .services-container {
-            max-width: 60%;
+          .bl-services-container {
+            max-width: 75%;
           }
           
-          .services-title {
-            font-size: 80px !important;
+          .bl-services-title {
+            font-size: 4rem !important;
             margin-bottom: 6rem;
           }
           
-          .service-title, 
-          .center-service-title {
-            font-size: 48px !important;
-            margin-bottom: 3rem;
+          .bl-services-grid {
+            gap: 4rem;
           }
           
-          .service-description, 
-          .service-description-text,
-          .center-service-description-text {
+          .bl-service-image-container, .bl-center-service-image-container {
+            height: 450px;
+          }
+          
+          .bl-service-content, .bl-center-service-content {
+            padding: 3rem;
+          }
+          
+          .bl-service-title, .bl-center-service-title {
             font-size: 32px !important;
+            margin-bottom: 1.5rem;
+          }
+          
+          .bl-service-description, .bl-service-description-text, .bl-center-service-description-text {
+            font-size: 1.5rem !important;
             margin-bottom: 3rem;
           }
           
-          .service-link,
-          .center-service-link {
-            font-size: 24px !important;
+          .bl-service-link, .bl-center-service-link {
+            font-size: 1.25rem !important;
+          }
+        }
+        
+        /* For ultra-wide screens (3840px and above) */
+        @media (min-width: 3840px) {
+          .bl-services-section {
+            padding-top: 12rem;
+            padding-bottom: 12rem;
           }
           
-          .service-content,
-          .center-service-content {
+          .bl-services-container {
+            max-width: 70%;
+          }
+          
+          .bl-services-title {
+            font-size: 5rem !important;
+            margin-bottom: 8rem;
+          }
+          
+          .bl-services-grid {
+            gap: 6rem;
+          }
+          
+          .bl-service-image-container, .bl-center-service-image-container {
+            height: 550px;
+          }
+          
+          .bl-service-content, .bl-center-service-content {
             padding: 4rem;
           }
           
-          .service-image-container,
-          .center-service-image-container {
-            height: 500px;
+          .bl-service-title, .bl-center-service-title {
+            font-size: 36px !important;
+            margin-bottom: 2rem;
           }
           
-          .center-service-card {
-            max-width: 1000px;
+          .bl-service-description, .bl-service-description-text, .bl-center-service-description-text {
+            font-size: 2rem !important;
+            margin-bottom: 4rem;
+          }
+          
+          .bl-service-link, .bl-center-service-link {
+            font-size: 1.5rem !important;
           }
         }
       `}</style>

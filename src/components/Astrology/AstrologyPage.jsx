@@ -29,24 +29,24 @@ const AstrologyPage = () => {
 
   return (
     <ModalContext.Provider value={{ openModal }}>
-    <div className="bg-navy-900 min-h-screen">
-      <HeroSection />
-      <ServicesSection />
-      <ApproachSection />
-      <FaqSection />
-      <TestimonialsSection />
-      {/* <div className="py-20 bg-navy-900 relative">
+      <div className="bg-navy-900 min-h-screen">
+        <HeroSection />
+        <ServicesSection />
+        <ApproachSection />
+        <FaqSection />
+        <TestimonialsSection />
+        {/* <div className="py-20 bg-navy-900 relative">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-white text-center mb-16">Need Astrological Guidance? Let's Talk!</h2> */}
-          <ContactForm />
+        {/* <ContactForm /> */}
 
-          {/* Google Form Modal */}
+        {/* Google Form Modal */}
         <GoogleFormAstrology
           isOpen={isModalOpen}
           onClose={closeModal}
         />
-        </div>
-        </ModalContext.Provider>
+      </div>
+    </ModalContext.Provider>
 
   );
 };

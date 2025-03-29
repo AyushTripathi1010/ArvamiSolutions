@@ -11,7 +11,7 @@ const ServicesSection = () => {
       title: "Design Services",
       description: "Transform your brand with UX/UI design, logo design, and more.",
       image: astrologyImg,
-      link: "/design",
+      link: "https://arvami.framer.website/",
       btnText: "View Our Portfolio"
     },
     {
@@ -65,15 +65,16 @@ const ServicesSection = () => {
               </div>
               <div className="service-content p-8 flex-grow flex flex-col justify-between">
                 <div className="service-text-wrapper">
-                  <h3 className="service-title text-2xl font-bold text-white mb-4">{service.title}</h3>
+                  <h3 className="service-title font-bold text-white mb-4" style={{ fontSize: '20px' }}>{service.title}</h3>
                   <p className="service-description text-gray-300 mb-6">{service.description}</p>
                 </div>
-                <Link
-                  to={service.link}
+                <a
+                  href={service.link}
+                  target='_blank'
                   className="service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
                 >
                   {service.btnText}
-                </Link>
+                </a>
               </div>
             </div>
           ))}
@@ -109,7 +110,7 @@ const ServicesSection = () => {
           }
           
           .service-title {
-            font-size: 1.5rem !important;
+            font-size: 16px !important;
             margin-bottom: 0.5rem;
           }
           
@@ -149,7 +150,7 @@ const ServicesSection = () => {
           }
           
           .service-title {
-            font-size: 1.75rem !important;
+            font-size: 18px !important;
           }
           
           .service-description {
@@ -186,7 +187,7 @@ const ServicesSection = () => {
           }
           
           .service-title {
-            font-size: 1.5rem !important;
+            font-size: 16px !important;
           }
           
           .service-description {
@@ -211,7 +212,7 @@ const ServicesSection = () => {
           }
           
           .service-title {
-            font-size: 1.75rem !important;
+            font-size: 18px !important;
           }
           
           .service-description {
@@ -237,6 +238,10 @@ const ServicesSection = () => {
           
           .service-image-container {
             height: 280px;
+          }
+          
+          .service-title {
+            font-size: 22px !important;
           }
         }
         
@@ -265,7 +270,7 @@ const ServicesSection = () => {
           }
           
           .service-title {
-            font-size: 2.25rem !important;
+            font-size: 24px !important;
             margin-bottom: 1rem;
           }
           
@@ -308,7 +313,7 @@ const ServicesSection = () => {
           }
           
           .service-title {
-            font-size: 2.5rem !important;
+            font-size: 28px !important;
             margin-bottom: 1.25rem;
           }
           
@@ -351,7 +356,7 @@ const ServicesSection = () => {
           }
           
           .service-title {
-            font-size: 3rem !important;
+            font-size: 32px !important;
             margin-bottom: 1.5rem;
           }
           
@@ -382,7 +387,7 @@ const ServicesSection = () => {
           }
           
           .services-grid {
-            gap: a6rem;
+            gap: 6rem;
           }
           
           .service-image-container {
@@ -394,7 +399,7 @@ const ServicesSection = () => {
           }
           
           .service-title {
-            font-size: 3.5rem !important;
+            font-size: 36px !important;
             margin-bottom: 2rem;
           }
           

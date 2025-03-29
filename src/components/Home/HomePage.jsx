@@ -16,7 +16,7 @@ const HomePage = () => {
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
+    setIsModalOpen(false); 
   };
 
   // Scroll to top when component mounts
