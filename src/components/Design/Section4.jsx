@@ -3,32 +3,14 @@ import project2 from '../../assets/DesignPage/Design_img15.png';
 import project3 from '../../assets/DesignPage/Design_img16.png';
 import bgImage from '../../assets/DesignPage/Design_img7.png';
 import RozgarVideo from '../../assets/DesignPage/Rozgar_video.mp4';
+import GpayVideo from '../../assets/DesignPage/Gpay_video.mp4';
 import { ArrowRight } from 'lucide-react';
 
 const Section4 = () => {
-  const videoProjects = [
-    {
-      id: 1,
-      name: "Rozgar",
-      video: RozgarVideo,
-      category: "Web Development",
-      description: "Job portal with advanced filtering and application tracking.",
-      link: "https://arvami.framer.website/case-studies/transforming-recruitment-with-ai-powered-job-matching-tracking"
-    },
-    {
-      id: 2,
-      name: "Gpay",
-      video: RozgarVideo, // Using the same video for now as specified
-      category: "UI/UX Design",
-      description: "Payment platform with intuitive user interface.",
-      link: "https://arvami.framer.website/case-studies/new-brand-look-and-website"
-    }
-  ];
-
   const imageProjects = [
     {
       id: 3,
-      name: "Hairpro",
+      name: "HairGrow",
       image: project1,
       category: "Web Development",
       description: "Hair transplant service website with modern design.",
@@ -36,7 +18,7 @@ const Section4 = () => {
     },
     {
       id: 4,
-      name: "Jeweler",
+      name: "Saavariya",
       image: project2,
       category: "UI/UX Design",
       description: "Jewelry e-commerce landing page with premium feel.",
@@ -44,7 +26,7 @@ const Section4 = () => {
     },
     {
       id: 5,
-      name: "Fashion",
+      name: "Gehna",
       image: project3,
       category: "E-commerce",
       description: "Traditional and modern fashion blend for online shopping.",
@@ -65,36 +47,67 @@ const Section4 = () => {
           <h2 className="text-3xl font-bold text-white mb-4 portfolio-heading">Portfolio</h2>
         </div>
 
-        {/* First row with video projects */}
+        {/* First row with video projects - explicit containers */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 auto-rows-fr">
-          {videoProjects.map((project) => (
-            <div key={project.id} className="bg-navy-950 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-800 flex flex-col">
-              <div className="h-80 relative">
+          {/* Rozgar Video Container */}
+          <div className="bg-navy-950 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-800 flex flex-col">
+            <div className="video-container h-96 relative">
+              <div className="video-wrapper absolute inset-0 flex items-center justify-center">
                 <video
-                  src={project.video}
-                  className="w-full h-full object-cover"
+                  src={RozgarVideo}
+                  className="video-element"
                   autoPlay
                   loop
                   muted
                   playsInline
                 />
               </div>
+            </div>
 
-              <div className="p-6 flex-grow">
-                <h3 className="text-4xl font-bold text-white mb-2 project-title">{project.name}</h3>
-                <div className="flex justify-between items-center">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition duration-300"
-                  >
-                    View Case study
-                  </a>
-                </div>
+            <div className="p-6 flex-grow">
+              <h3 className="text-4xl font-bold text-white mb-2 project-title">Rozgar</h3>
+              <div className="flex justify-between items-center">
+                <a
+                  href="https://arvami.framer.website/case-studies/transforming-recruitment-with-ai-powered-job-matching-tracking"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition duration-300"
+                >
+                  View Case study
+                </a>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Gpay Video Container */}
+          <div className="bg-navy-950 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-800 flex flex-col">
+            <div className="video-container h-96 relative">
+              <div className="video-wrapper absolute inset-0 flex items-center justify-center">
+                <video
+                  src={GpayVideo}
+                  className="video-element-gpay"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              </div>
+            </div>
+
+            <div className="p-6 flex-grow">
+              <h3 className="text-4xl font-bold text-white mb-2 project-title">Gpay</h3>
+              <div className="flex justify-between items-center">
+                <a
+                  href="https://arvami.framer.website/case-studies/new-brand-look-and-website"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition duration-300"
+                >
+                  View Case study
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Second row with image projects */}
@@ -127,11 +140,10 @@ const Section4 = () => {
         {/* View Portfolio button */}
         <div className="flex justify-center ">
           <a
-            href="/portfolio"
+            href="https://arvami.framer.website/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white hover:bg-blue-500 text-navy-900 font-semibold hover:text-white py-3 px-10 border border-white hover:border-transparent rounded-full transition duration-500 inline-block"
-
           >
             View Portfolio
           </a>
@@ -140,6 +152,61 @@ const Section4 = () => {
 
       {/* Media Queries */}
       <style jsx>{`
+        .video-container {
+          position: relative;
+          overflow: hidden;
+          background-color: #000;
+        }
+        
+        .video-wrapper {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        
+        .video-element {
+          min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          transform: scale(1); /* Scale up video to make it bigger */
+        }
+        
+        .video-element-gpay{
+           min-width: 100%;
+          min-height: 100%;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          transform: scale(0.3); /* Scale up video to make it bigger */
+        }
+        
+        /* Ensure videos maintain aspect ratio while filling container */
+        @media (min-width: 768px) {
+          .video-container {
+            height: 380px;
+          }
+        }
+        
+        /* For smaller mobile screens */
+        @media (max-width: 767px) {
+          .video-container {
+            height: 280px;
+          }
+          
+          .project-title {
+            font-size: 2.25rem;
+          }
+          
+          .video-element {
+            transform: scale(1.2); /* Slightly smaller scale for mobile */
+          }
+        }
+        
         /* For smaller laptop screens (1024px) */
         @media (max-width: 1024px) {
           .container {
@@ -162,6 +229,14 @@ const Section4 = () => {
           .project-title {
             font-size: 2.25rem;
           }
+          
+          .video-container {
+            height: 450px;
+          }
+          
+          .video-element {
+            transform: scale(1.4); /* Larger scale for bigger screens */
+          }
         }
         
         /* For extra-large screens (3000px and above) */
@@ -176,6 +251,14 @@ const Section4 = () => {
           
           .project-title {
             font-size: 2.5rem;
+          }
+          
+          .video-container {
+            height: 550px;
+          }
+          
+          .video-element {
+            transform: scale(1.5); /* Even larger scale for extra large screens */
           }
         }
       `}</style>

@@ -4,15 +4,18 @@ import webDevImage from '../../assets/DesignPage/Design_img11.png';
 import brandingImage from '../../assets/DesignPage/Design_img12.png';
 import printDesignImage from '../../assets/DesignPage/Design_img13.png';
 import bgImage from '../../assets/DesignPage/Design_img7.png';
+import { ModalContext } from './DesignPage';
+import { useContext } from 'react';
 
 const Section2 = () => {
+  const { openModal } = useContext(ModalContext);
   const services = [
     {
       id: 1,
       title: "UI/UX Design",
       description: "We design intuitive & visually stunning UI/UX for websites and apps.",
       image: uiuxImage,
-      link: "/design/ui-ux",
+      link: "https://arvami.framer.website/",
       btnText: "View Our Portfolio"
     },
     {
@@ -20,15 +23,14 @@ const Section2 = () => {
       title: "Website Development",
       description: "From business websites to eCommerce stores, we build seamless digital experiences",
       image: webDevImage,
-      link: "/design/web-development",
-      btnText: "Get a Website Quote"
+      link: "https://arvami.framer.website/",
+      btnText: "View Portfolio"
     },
     {
       id: 3,
       title: "Logo & Branding",
       description: "Your brand deserves a unique & professional logo that stands out.",
       image: brandingImage,
-      link: "/design/branding",
       btnText: "Design my Logo"
     }
   ];
@@ -38,7 +40,6 @@ const Section2 = () => {
     title: "Brochure & Print Design",
     description: "Eye-catching brochures, flyers, and banners for strong brand communication.",
     image: printDesignImage,
-    link: "/design/print",
     btnText: "Get a Quote"
   };
 
@@ -81,12 +82,24 @@ const Section2 = () => {
                   <h3 className="design-title font-bold text-white mb-2" style={{ fontSize: '20px' }}>{service.title}</h3>
                   <p className="design-description text-gray-300 mb-4 text-sm">{service.description}</p>
                 </div>
-                <Link
-                  to={service.link}
-                  className="design-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
-                >
-                  {service.btnText}
-                </Link>
+                {service.link ? (
+                  <Link
+                    to={service.link}
+                    target="_blank"
+                    className="design-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
+                  >
+                    {service.btnText}
+                  </Link>
+                ) : (
+                  <Link
+                    onClick={openModal}
+                    className="design-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
+                  >
+                    {service.btnText}
+                  </Link>
+                )}
+
+
               </div>
             </div>
           ))}
@@ -114,7 +127,7 @@ const Section2 = () => {
                 <p className="design-description text-gray-300 mb-4 text-sm">{printService.description}</p>
               </div>
               <Link
-                to={printService.link}
+                onClick={openModal}
                 className="design-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
               >
                 {printService.btnText}

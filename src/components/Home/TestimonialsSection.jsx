@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import "./TestimonialsSection.css";
+import profile1 from '../../assets/HomePage/profile_1.jpg'
+import profile2 from '../../assets/HomePage/profile_2.jpg'
+import profile3 from '../../assets/HomePage/profile_3.jpg'
+import profile4 from '../../assets/HomePage/profile_4.jpg'
 
 // SVG Background component with proper mask scaling
 const TestimonialBackground = () => {
@@ -69,25 +73,25 @@ const testimonials = [
     text: "Starting my business felt overwhelming with all the legal formalities, but Arvami Solutions made it effortless! From GST registration to company incorporation, their team handled everything with precision. Highly professional and reliable—definitely my go-to for business solutions!",
     author: "Rohit Sharma",
     role: "Startup Founder",
-    image: "https://via.placeholder.com/150",
+    image: profile1,
   },
   {
     text: "I was skeptical at first, but their services truly helped me refine my strategy. Their numbers gave me confidence in making decisions—a valuable service for any business.",
     author: "Amit Verma",
     role: "Business Consultant",
-    image: "https://via.placeholder.com/150",
+    image: profile3,
   },
   {
     text: "The team at Arvami Solutions exceeded my expectations! Their attention to detail and timely delivery were remarkable. I highly recommend their services.",
     author: "Priya Mehta",
     role: "Entrepreneur",
-    image: "https://via.placeholder.com/150",
+    image: profile2,
   },
   {
     text: "Exceptional service! I'm impressed by their expertise and quick support. A game-changer for my business operations.",
     author: "Karan Patel",
     role: "CEO",
-    image: "https://via.placeholder.com/150",
+    image: profile4,
   },
 ];
 
@@ -101,15 +105,16 @@ const CenterTestimonial = ({ testimonial }) => {
             <img
               src={testimonial.image}
               alt={testimonial.author}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover text-white"
             />
           </div>
         </div>
         <div className="text-center">
-          <p className="text-blue-500 text-5xl mb-6">❝</p>
-          <p className="text-lg text-gray-700 mb-6">
+          <p className="text-blue-500 text-5xl mb-3 text-start">❝</p>
+          <p className="text-lg text-gray-700 mb-1">
             {testimonial.text}
           </p>
+          <p className="text-blue-500 text-5xl text-start rotate-180">❝</p>
           <p className="font-bold text-gray-900 text-xl">{testimonial.author}</p>
           <p className="text-sm text-gray-500">{testimonial.role}</p>
         </div>
@@ -242,9 +247,9 @@ const TestimonialsSection = () => {
         <div className="relative min-h-[550px] w-full overflow-visible">
           <div className="flex justify-center items-center h-full relative">
             {/* Carousel Track */}
-            <div 
+            <div
               className="flex items-center"
-              style={{ 
+              style={{
                 transition: transitionEnabled ? `transform ${transitionDuration}ms ease-in-out` : 'none',
                 transform: `translateX(calc(-${slideIndex * 33.33}% + 33.33%))`,
                 width: 'calc(100% * 6)' // remains as before
@@ -253,13 +258,13 @@ const TestimonialsSection = () => {
               {wrappedTestimonials.map((testimonial, index) => {
                 const relativePosition = index - slideIndex;
                 const isCurrent = relativePosition === 0;
-                
+
                 return (
-                  <div 
+                  <div
                     key={index}
                     className={`flex-shrink-0 w-1/3 px-6 transition-all duration-500 flex items-center justify-center overflow-visible
-                      ${isCurrent 
-                        ? 'z-30 transform scale-105 opacity-100' 
+                      ${isCurrent
+                        ? 'z-30 transform scale-105 opacity-100'
                         : 'z-10 transform scale-90 opacity-50'
                       }`}
                     style={{ minHeight: '450px' }}
@@ -278,7 +283,7 @@ const TestimonialsSection = () => {
           {/* Navigation Arrows */}
           <button
             onClick={handlePrev}
-            className="group absolute left-[14%] top-1/2 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full backdrop-blur-lg text-white hover:bg-green-600 transition-all duration-300 shadow-lg z-30 hover:w-16 hover:h-16"
+            className="group absolute left-[28%] top-1/2 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-[#2196F3] transition-all duration-300 shadow-lg z-30 hover:w-16 hover:h-16"
             disabled={isTransitioning}
           >
             <ArrowBackIcon className="transition-all duration-300" />
@@ -286,7 +291,7 @@ const TestimonialsSection = () => {
 
           <button
             onClick={handleNext}
-            className="group absolute right-[14%] top-1/2 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full backdrop-blur-lg text-white hover:bg-green-600 transition-all duration-300 shadow-lg z-30 hover:w-16 hover:h-16"
+            className="group absolute right-[28%] top-1/2 transform -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-[#2196F3] transition-all duration-300 shadow-lg z-30 hover:w-16 hover:h-16"
             disabled={isTransitioning}
           >
             <ArrowForwardIcon className="transition-all duration-300" />
@@ -299,9 +304,8 @@ const TestimonialsSection = () => {
             <button
               key={index}
               onClick={() => handleDotClick(index)}
-              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                index === currentIndex ? "bg-white" : "bg-gray-600"
-              }`}
+              className={`w-3 h-3 rounded-full transition-colors duration-300 ${index === currentIndex ? "bg-white" : "bg-gray-600"
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
