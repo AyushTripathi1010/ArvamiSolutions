@@ -54,30 +54,30 @@ const Navbar = () => {
 
   // Design dropdown items
   const designItems = [
-    { name: 'UI/UX Design', path: '/design/ui-ux' },
-    { name: 'Website Design', path: '/design/website' },
-    { name: 'Logo design', path: '/design/logo' },
-    { name: 'Brochure Design', path: '/design/brochure' },
-    { name: 'App Design', path: '/design/app' },
+    { name: 'UI/UX Design', path: '/design/' },
+    { name: 'Website Design', path: '/design/' },
+    { name: 'Logo design', path: '/design/' },
+    { name: 'Brochure Design', path: '/design/' },
+    { name: 'App Design', path: '/design/' },
   ];
 
   // Business & Legal dropdown items
   const businessItems = [
-    { name: 'GST Registration', path: '/business-registrations-legal/gst' },
-    { name: 'TDS Return Filing', path: '/business-registrations-legal/tds' },
-    { name: 'Project Report Preparation', path: '/business-registrations-legal/project-report' },
-    { name: 'Aadhar Card Address Change', path: '/business-registrations-legal/aadhar' },
-    { name: 'PAN Card Application', path: '/business-registrations-legal/pan' },
-    { name: 'FSSAI Food License', path: '/business-registrations-legal/fssai' },
-    { name: 'Udyam Aadhaar Registration', path: '/business-registrations-legal/udyam' },
+    { name: 'GST Registration', path: '/business-registrations-legal/' },
+    { name: 'TDS Return Filing', path: '/business-registrations-legal/' },
+    { name: 'Project Report Preparation', path: '/business-registrations-legal/' },
+    { name: 'Aadhar Card Address Change', path: '/business-registrations-legal/' },
+    { name: 'PAN Card Application', path: '/business-registrations-legal/' },
+    { name: 'FSSAI Food License', path: '/business-registrations-legal/' },
+    { name: 'Udyam Aadhaar Registration', path: '/business-registrations-legal/' },
   ];
 
   // Astrology dropdown items
   const astrologyItems = [
-    { name: 'Numerology Consultation', path: '/astrology/numerology' },
-    { name: 'Graphology', path: '/astrology/graphology' },
-    { name: 'Vedic Switch Words', path: '/astrology/vedic-switch' },
-    { name: 'Vastu Consultation', path: '/astrology/vastu' },
+    { name: 'Numerology Consultation', path: '/astrology/' },
+    { name: 'Graphology', path: '/astrology/' },
+    { name: 'Vedic Switch Words', path: '/astrology/' },
+    { name: 'Vastu Consultation', path: '/astrology/' },
   ];
 
   return (
@@ -109,7 +109,7 @@ const Navbar = () => {
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`navbar-dropdown-item block px-4 py-3 ${activeRoute === item.path ? 'text-blue-600 bg-blue-100' : 'text-gray-800'} hover:bg-blue-100 hover:text-blue-600 transition duration-200`}
+                    className="navbar-dropdown-item block px-4 py-3 text-gray-800 hover:bg-blue-100 hover:text-blue-600 transition duration-200"
                     onClick={() => handleRouteChange(item.path)}
                   >
                     {item.name}
@@ -137,7 +137,7 @@ const Navbar = () => {
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`navbar-dropdown-item block px-4 py-3 ${activeRoute === item.path ? 'text-blue-600 bg-blue-100' : 'text-gray-800'} hover:bg-blue-100 hover:text-blue-600 transition duration-200`}
+                    className="navbar-dropdown-item block px-4 py-3 text-gray-800 hover:bg-blue-100 hover:text-blue-600 transition duration-200"
                     onClick={() => handleRouteChange(item.path)}
                   >
                     {item.name}
@@ -165,7 +165,7 @@ const Navbar = () => {
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`navbar-dropdown-item block px-4 py-3 ${activeRoute === item.path ? 'text-blue-600 bg-blue-100' : 'text-gray-800'} hover:bg-blue-100 hover:text-blue-600 transition duration-200`}
+                    className="navbar-dropdown-item block px-4 py-3 text-gray-800 hover:bg-blue-100 hover:text-blue-600 transition duration-200"
                     onClick={() => handleRouteChange(item.path)}
                   >
                     {item.name}
@@ -255,7 +255,7 @@ const Navbar = () => {
                     <Link
                       key={item.path}
                       to={item.path}
-                      className={`mobile-dropdown-item block py-2 ${activeRoute === item.path ? 'text-blue-300' : 'text-gray-300'} hover:text-blue-300 transition duration-200`}
+                      className="mobile-dropdown-item block py-2 text-gray-300 hover:text-blue-300 transition duration-200"
                       onClick={() => {
                         setIsOpen(false);
                         setActiveDropdown(null);
@@ -305,7 +305,7 @@ const Navbar = () => {
                     <Link
                       key={item.path}
                       to={item.path}
-                      className={`mobile-dropdown-item block py-2 ${activeRoute === item.path ? 'text-blue-300' : 'text-gray-300'} hover:text-blue-300 transition duration-200`}
+                      className="mobile-dropdown-item block py-2 text-gray-300 hover:text-blue-300 transition duration-200"
                       onClick={() => {
                         setIsOpen(false);
                         setActiveDropdown(null);
@@ -355,7 +355,7 @@ const Navbar = () => {
                     <Link
                       key={item.path}
                       to={item.path}
-                      className={`mobile-dropdown-item block py-2 ${activeRoute === item.path ? 'text-blue-300' : 'text-gray-300'} hover:text-blue-300 transition duration-200`}
+                      className="mobile-dropdown-item block py-2 text-gray-300 hover:text-blue-300 transition duration-200"
                       onClick={() => {
                         setIsOpen(false);
                         setActiveDropdown(null);
