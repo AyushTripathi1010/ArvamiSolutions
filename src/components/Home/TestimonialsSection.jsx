@@ -311,6 +311,370 @@ const TestimonialsSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Add responsive styling */}
+      <style jsx>{`
+        /* For mobile devices (up to 639px) */
+        @media (max-width: 639px) {
+          .testimonials-section {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+          }
+          
+          h2 {
+            font-size: 1.75rem !important;
+            margin-bottom: 1.5rem;
+          }
+          
+          .min-h-\\[550px\\] {
+            min-height: 650px !important;
+          }
+          
+          .w-32.h-32 {
+            width: 5rem !important;
+            height: 5rem !important;
+          }
+          
+          .w-24.h-24 {
+            width: 4rem !important;
+            height: 4rem !important;
+          }
+          
+          .p-8 {
+            padding: 1rem !important;
+          }
+          
+          .pt-20 {
+            padding-top: 4rem !important;
+          }
+          
+          .text-5xl {
+            font-size: 2rem !important;
+          }
+          
+          .text-lg {
+            font-size: 0.875rem !important;
+          }
+          
+          .text-xl {
+            font-size: 1rem !important;
+          }
+          
+          .w-12.h-12 {
+            width: 2.5rem !important;
+            height: 2.5rem !important;
+          }
+          
+          .left-\\[28\\%\\] {
+            left: 5% !important;
+          }
+          
+          .right-\\[28\\%\\] {
+            right: 5% !important;
+          }
+          
+          .hover\\:w-16.hover\\:h-16:hover {
+            width: 2.75rem !important;
+            height: 2.75rem !important;
+          }
+        }
+        
+        /* For medium mobile devices (640px - 767px) */
+        @media (min-width: 640px) and (max-width: 767px) {
+          .testimonials-section {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+          }
+          
+          h2 {
+            font-size: 2rem !important;
+            margin-bottom: 2rem;
+          }
+          
+          .min-h-\\[550px\\] {
+            min-height: 600px !important;
+          }
+          
+          .w-32.h-32 {
+            width: 6rem !important;
+            height: 6rem !important;
+          }
+          
+          .w-24.h-24 {
+            width: 4.5rem !important;
+            height: 4.5rem !important;
+          }
+          
+          .left-\\[28\\%\\] {
+            left: 10% !important;
+          }
+          
+          .right-\\[28\\%\\] {
+            right: 10% !important;
+          }
+        }
+        
+        /* For tablets (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .testimonials-section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+          }
+          
+          h2 {
+            font-size: 2.25rem !important;
+            margin-bottom: 2.5rem;
+          }
+          
+          .left-\\[28\\%\\] {
+            left: 15% !important;
+          }
+          
+          .right-\\[28\\%\\] {
+            right: 15% !important;
+          }
+        }
+        
+        /* For smaller laptops (1024px - 1279px) */
+        @media (min-width: 1024px) and (max-width: 1279px) {
+          h2 {
+            font-size: 2.5rem !important;
+          }
+          
+          .left-\\[28\\%\\] {
+            left: 20% !important;
+          }
+          
+          .right-\\[28\\%\\] {
+            right: 20% !important;
+          }
+        }
+        
+        /* For medium laptops (1280px - 1535px) */
+        @media (min-width: 1280px) and (max-width: 1535px) {
+          h2 {
+            font-size: 2.75rem !important;
+          }
+          
+          .left-\\[28\\%\\] {
+            left: 25% !important;
+          }
+          
+          .right-\\[28\\%\\] {
+            right: 25% !important;
+          }
+        }
+        
+        /* For desktop screens (1536px - 1919px) */
+        @media (min-width: 1536px) and (max-width: 1919px) {
+          h2 {
+            font-size: 3rem !important;
+          }
+          
+          .w-32.h-32 {
+            width: 9rem !important;
+            height: 9rem !important;
+          }
+          
+          .w-24.h-24 {
+            width: 7rem !important;
+            height: 7rem !important;
+          }
+          
+          .text-5xl {
+            font-size: 3.5rem !important;
+          }
+          
+          .text-lg {
+            font-size: 1.125rem !important;
+          }
+          
+          .text-xl {
+            font-size: 1.25rem !important;
+          }
+          
+          .w-12.h-12 {
+            width: 3.5rem !important;
+            height: 3.5rem !important;
+          }
+          
+          .hover\\:w-16.hover\\:h-16:hover {
+            width: 4rem !important;
+            height: 4rem !important;
+          }
+        }
+        
+        /* For large screens (1920px - 2559px) */
+        @media (min-width: 1920px) and (max-width: 2559px) {
+          .testimonials-section {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+          }
+          
+          h2 {
+            font-size: 3.5rem !important;
+            margin-bottom: 3rem;
+          }
+          
+          .min-h-\\[550px\\] {
+            min-height: 650px !important;
+          }
+          
+          .w-32.h-32 {
+            width: 10rem !important;
+            height: 10rem !important;
+          }
+          
+          .w-24.h-24 {
+            width: 8rem !important;
+            height: 8rem !important;
+          }
+          
+          .p-8 {
+            padding: 2rem !important;
+          }
+          
+          .pt-20 {
+            padding-top: 7rem !important;
+          }
+          
+          .text-5xl {
+            font-size: 4rem !important;
+          }
+          
+          .text-lg {
+            font-size: 1.25rem !important;
+          }
+          
+          .text-xl {
+            font-size: 1.5rem !important;
+          }
+          
+          .w-12.h-12 {
+            width: 4rem !important;
+            height: 4rem !important;
+          }
+          
+          .hover\\:w-16.hover\\:h-16:hover {
+            width: 4.5rem !important;
+            height: 4.5rem !important;
+          }
+        }
+        
+        /* For extra large screens (2560px - 3839px) */
+        @media (min-width: 2560px) and (max-width: 3839px) {
+          .testimonials-section {
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+          }
+          
+          h2 {
+            font-size: 4rem !important;
+            margin-bottom: 4rem;
+          }
+          
+          .min-h-\\[550px\\] {
+            min-height: 750px !important;
+          }
+          
+          .w-32.h-32 {
+            width: 12rem !important;
+            height: 12rem !important;
+          }
+          
+          .w-24.h-24 {
+            width: 10rem !important;
+            height: 10rem !important;
+          }
+          
+          .p-8 {
+            padding: 3rem !important;
+          }
+          
+          .pt-20 {
+            padding-top: 9rem !important;
+          }
+          
+          .text-5xl {
+            font-size: 5rem !important;
+          }
+          
+          .text-lg {
+            font-size: 1.5rem !important;
+          }
+          
+          .text-xl {
+            font-size: 1.75rem !important;
+          }
+          
+          .w-12.h-12 {
+            width: 5rem !important;
+            height: 5rem !important;
+          }
+          
+          .hover\\:w-16.hover\\:h-16:hover {
+            width: 5.5rem !important;
+            height: 5.5rem !important;
+          }
+        }
+        
+        /* For ultra-wide screens (3840px and above) */
+        @media (min-width: 3840px) {
+          .testimonials-section {
+            padding-top: 10rem;
+            padding-bottom: 10rem;
+          }
+          
+          h2 {
+            font-size: 5rem !important;
+            margin-bottom: 5rem;
+          }
+          
+          .min-h-\\[550px\\] {
+            min-height: 900px !important;
+          }
+          
+          .w-32.h-32 {
+            width: 16rem !important;
+            height: 16rem !important;
+          }
+          
+          .w-24.h-24 {
+            width: 12rem !important;
+            height: 12rem !important;
+          }
+          
+          .p-8 {
+            padding: 4rem !important;
+          }
+          
+          .pt-20 {
+            padding-top: 12rem !important;
+          }
+          
+          .text-5xl {
+            font-size: 6rem !important;
+          }
+          
+          .text-lg {
+            font-size: 2rem !important;
+          }
+          
+          .text-xl {
+            font-size: 2.25rem !important;
+          }
+          
+          .w-12.h-12 {
+            width: 6rem !important;
+            height: 6rem !important;
+          }
+          
+          .hover\\:w-16.hover\\:h-16:hover {
+            width: 7rem !important;
+            height: 7rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

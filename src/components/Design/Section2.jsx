@@ -158,11 +158,16 @@ const Section2 = () => {
           
           .design-grid {
             padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
           
           .design-card {
-            width: 100% !important;
+            width: 90% !important;
             margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
           }
           
           .design-image-container {
@@ -188,7 +193,7 @@ const Section2 = () => {
           }
           
           .flex.justify-center .design-card {
-            width: 100% !important;
+            width: 90% !important;
           }
         }
         
@@ -206,11 +211,16 @@ const Section2 = () => {
           
           .design-grid {
             padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
           
           .design-card {
-            width: 100% !important;
+            width: 90% !important;
             margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
           }
           
           .design-image-container {
@@ -249,10 +259,16 @@ const Section2 = () => {
           .design-grid {
             gap: 1.5rem;
             padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
           
           .design-card {
-            width: 100% !important;
+            width: 90% !important;
+            margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
           }
           
           .design-image-container {
@@ -268,7 +284,7 @@ const Section2 = () => {
           }
           
           .flex.justify-center .design-card {
-            width: 80% !important;
+            width: 90% !important;
           }
         }
         
@@ -298,7 +314,7 @@ const Section2 = () => {
           }
           
           .flex.justify-center .design-card {
-            width: 70% !important;
+            width: 30% !important;
           }
         }
         

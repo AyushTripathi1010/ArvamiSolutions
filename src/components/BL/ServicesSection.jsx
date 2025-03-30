@@ -160,6 +160,10 @@ const ServicesSection = () => {
           .bl-services-section {
             padding-top: 3rem;
             padding-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-item: center;
+            justify-content: center;
           }
           
           .bl-services-title {
@@ -168,8 +172,14 @@ const ServicesSection = () => {
           }
           
           .bl-service-card, .bl-center-service-card {
-            width: 100% !important;
+            width: 90%;
             margin-bottom: 2rem;
+          }
+
+          .bl-center-service-card{
+            width: 90%;
+            margin-right: 10%;
+            
           }
           
           .bl-service-image-container, .bl-center-service-image-container {
@@ -208,7 +218,7 @@ const ServicesSection = () => {
           }
           
           .bl-service-card, .bl-center-service-card {
-            width: 100% !important;
+            width: 90% ;
             margin-bottom: 2rem;
           }
           
@@ -230,6 +240,7 @@ const ServicesSection = () => {
           
           .bl-center-service-card {
             width: 90% !important;
+            margin-right: 10%;
           }
         }
         
@@ -266,7 +277,8 @@ const ServicesSection = () => {
           }
           
           .bl-center-service-card {
-            width: 80% !important;
+            width: 40% !important;
+            
           }
         }
         
@@ -295,7 +307,7 @@ const ServicesSection = () => {
           }
           
           .bl-center-service-card {
-            width: 70% !important;
+            width: 30% !important;
           }
         }
         

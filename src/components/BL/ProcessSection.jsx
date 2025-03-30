@@ -10,7 +10,7 @@ const ProcessSection = () => {
 
   return (
     <div className="process-section py-20 relative flex justify-center">
-      <div className="process-container container mx-auto px-6">
+      <div className="process-container container mx-auto px-6 flex-col justify-center">
         <h2 className="process-title text-3xl font-bold text-white text-center mb-20">
           Our Process
         </h2>
@@ -40,22 +40,20 @@ const ProcessSection = () => {
                   <p className="process-step-text text-white font-medium">{step.title}</p>
                 </div>
 
-                {/* Arrow between steps */}
+                {/* Arrow between steps - hidden on mobile, visible on md+ */}
                 {index < steps.length - 1 && (
                   <div
                     className="
-                      process-arrow
+                      process-arrow-horizontal
                       hidden
                       md:block
                       absolute
                       top-1/2
                       left-full
                       -translate-y-1/2
-                      // Adjust this margin-left to move arrow closer/farther from the box:
                       ml-[0px]
                       z-20
                     "
-                    // Adjust the width for arrow length
                     style={{ width: '60px' }}
                   >
                     <svg
@@ -89,6 +87,51 @@ const ProcessSection = () => {
                     </svg>
                   </div>
                 )}
+
+                {/* Vertical Arrow for mobile only */}
+                {index < steps.length - 1 && (
+                  <div
+                    className="
+                      process-arrow-vertical
+                      block
+                      md:hidden
+                      mx-auto
+                      mt-2
+                      mb-2
+                      z-20
+                    "
+                  >
+                    <svg
+                      className="process-arrow-svg-vertical"
+                      width="24"
+                      height="40"
+                      viewBox="0 0 24 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      {/* Vertical line */}
+                      <path
+                        className="process-arrow-line-vertical"
+                        d="M12 0 L12 30"
+                        stroke="#3B82F6"
+                        strokeWidth="2"
+                      />
+                      {/* Arrowhead pointing down */}
+                      <path
+                        className="process-arrow-head-left"
+                        d="M12 30 L7 25"
+                        stroke="#3B82F6"
+                        strokeWidth="2"
+                      />
+                      <path
+                        className="process-arrow-head-right"
+                        d="M12 30 L17 25"
+                        stroke="#3B82F6"
+                        strokeWidth="2"
+                      />
+                    </svg>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -111,7 +154,7 @@ const ProcessSection = () => {
           
           .process-step-box {
             width: 220px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
             padding: 0.75rem 1rem;
           }
           
@@ -120,12 +163,29 @@ const ProcessSection = () => {
           }
           
           .process-steps-container {
-            gap: 2rem;
+            gap: 0.5rem;
+          }
+          
+          .process-arrow-vertical {
+            height: 40px;
+            display: flex;
+            justify-content: center;
           }
         }
         
         /* For tablets (768px - 1023px) */
         @media (min-width: 768px) and (max-width: 1023px) {
+        .process-section{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .process-content {
+             display:flex;
+             justify-content: center;
+             margin: 0 auto;
+             margin-left:3rem;
+          }
           .process-title {
             font-size: 28px !important;
             margin-bottom: 3rem;
@@ -141,20 +201,25 @@ const ProcessSection = () => {
           }
           
           .process-steps-container {
-            gap: 0.5rem;
+            gap: 4rem;
           }
           
-          .process-arrow {
-            width: 40px !important;
+          .process-arrow-horizontal {
+            width: 80px !important;
           }
           
           .process-arrow-svg {
-            width: 40px;
+            width: 70px;
           }
         }
         
         /* For smaller laptops (1024px - 1366px) */
         @media (min-width: 1024px) and (max-width: 1366px) {
+          .process-content {
+             display:flex;
+             justify-content: center;
+             margin: 0 auto;
+          }
           .process-title {
             font-size: 30px !important;
             margin-bottom: 3.5rem;
@@ -169,15 +234,15 @@ const ProcessSection = () => {
           }
           
           .process-steps-container {
-            gap: 3rem;
+            gap: 4rem;
           }
           
-          .process-arrow {
-            width: 50px !important;
+          .process-arrow-horizontal {
+            width: 80px !important;
           }
           
           .process-arrow-svg {
-            width: 50px;
+            width: 70px;
           }
         }
         
@@ -201,7 +266,7 @@ const ProcessSection = () => {
             gap: 4rem;
           }
           
-          .process-arrow {
+          .process-arrow-horizontal {
             width: 70px !important;
           }
           
@@ -243,7 +308,7 @@ const ProcessSection = () => {
             gap: 5rem;
           }
           
-          .process-arrow {
+          .process-arrow-horizontal {
             width: 90px !important;
           }
           
@@ -283,7 +348,7 @@ const ProcessSection = () => {
             gap: 7rem;
           }
           
-          .process-arrow {
+          .process-arrow-horizontal {
             width: 120px !important;
           }
           
@@ -323,7 +388,7 @@ const ProcessSection = () => {
             gap: 10rem;
           }
           
-          .process-arrow {
+          .process-arrow-horizontal {
             width: 160px !important;
           }
           
