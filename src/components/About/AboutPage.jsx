@@ -54,7 +54,7 @@ const AboutPage = () => {
               <h3 className="founder-name text-white text-xl font-semibold">Chhaya Poojary</h3>
               <p className="founder-designation text-gray-400">Founder & CEO</p>
 
-              <h3 className="cofounder-name text-white text-xl font-semibold mt-4">Shraddha</h3>
+              <h3 className="cofounder-name text-white text-xl font-semibold mt-4">Shradha Tiwari</h3>
               <p className="cofounder-designation text-gray-400">Co-Founder</p>
             </div>
           </div>
