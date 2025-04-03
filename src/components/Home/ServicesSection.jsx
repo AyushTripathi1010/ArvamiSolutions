@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import designImg from '../../assets/HomePage/Home_img2.png';
 import legalImg from '../../assets/HomePage/Home_img3.png';
 import astrologyImg from '../../assets/HomePage/Home_img4.png';
 import wallpaper from '../../assets/HomePage/Wallpaper.png';
 
 const ServicesSection = () => {
+  const sectionRef = useRef(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
   const services = [
     {
       id: 1,
@@ -32,8 +36,35 @@ const ServicesSection = () => {
     }
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasAnimated) {
+          // Trigger the animation only once when section comes into view
+          setHasAnimated(true);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3, // When 30% of the element is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [hasAnimated]);
+
   return (
-    <div className="services-section py-20 bg-navy-900 relative">
+    <div ref={sectionRef} className="services-section py-20 bg-navy-900 relative">
       {/* Background Image */}
       <div className="services-bg-wrapper absolute inset-0 w-full h-full">
         <img
@@ -50,31 +81,33 @@ const ServicesSection = () => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%] border-2 border-gray-400 hover:border-blue-500"
+              className={`service-card ${hasAnimated ? 'flip-card' : ''} bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%] border-2 border-gray-400 hover:border-blue-500`}
               style={{
                 backgroundColor: "#000322",
-
+                perspective: "1000px", // Add 3D perspective
               }}
             >
-              <div className="service-image-container h-72 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="service-image w-full h-full object-cover"
-                />
-              </div>
-              <div className="service-content p-8 flex-grow flex flex-col justify-between">
-                <div className="service-text-wrapper">
-                  <h3 className="service-title font-bold text-white mb-4" style={{ fontSize: '20px' }}>{service.title}</h3>
-                  <p className="service-description text-gray-300 mb-6">{service.description}</p>
+              <div className="card-inner">
+                <div className="service-image-container h-72 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="service-image w-full h-full object-cover"
+                  />
                 </div>
-                <a
-                  href={service.link}
-                  target='_blank'
-                  className="service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
-                >
-                  {service.btnText}
-                </a>
+                <div className="service-content p-8 flex-grow flex flex-col justify-between">
+                  <div className="service-text-wrapper">
+                    <h3 className="service-title font-bold text-white mb-4" style={{ fontSize: '20px' }}>{service.title}</h3>
+                    <p className="service-description text-gray-300 mb-6">{service.description}</p>
+                  </div>
+                  <a
+                    href={service.link}
+                    target='_blank'
+                    className="service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
+                  >
+                    {service.btnText}
+                  </a>
+                </div>
               </div>
             </div>
           ))}
@@ -88,6 +121,41 @@ const ServicesSection = () => {
 
       {/* Responsive styling */}
       <style jsx>{`
+        /* Card flip animation */
+        .service-card {
+          transform-style: preserve-3d;
+          position: relative;
+        }
+        
+        .card-inner {
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+          transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .flip-card .card-inner {
+          animation: flipAnimation 2s forwards;
+        }
+        
+        @keyframes flipAnimation {
+          0% {
+            transform: rotateY(0deg);
+          }
+          100% {
+            transform: rotateY(360deg);
+          }
+        }
+
+        /* Animation delay for cards */
+        .service-card:nth-child(2) .card-inner {
+          animation-delay: 0.1s;
+        }
+        
+        .service-card:nth-child(3) .card-inner {
+          animation-delay: 0.2s;
+        }
+        
         /* For mobile devices (up to 639px) */
         @media (max-width: 639px) {
           .services-section {

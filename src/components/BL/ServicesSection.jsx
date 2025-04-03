@@ -74,18 +74,18 @@ const ServicesSection = () => {
 
   return (
     <div className="bl-services-section py-20" style={{ backgroundColor: "#000322" }}>
-      <div className="bl-services-container container mx-auto px-6" style={{ paddingLeft: '3%', paddingRight: '3%' }}>
+      <div className="bl-services-container container mx-auto px-4 md:px-6">
         <h2 className="bl-services-title text-3xl font-bold text-white text-center mb-16">How We Can Help?</h2>
 
         {/* Grid for first 6 services (3x2) */}
-        <div className="bl-services-grid grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+        <div className="bl-services-grid grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {services.map((service) => (
             <div
               key={service.id}
-              className="bl-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%] border-2 border-gray-400 hover:border-blue-500"
+              className="bl-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 border-2 border-gray-400 hover:border-blue-500 mx-auto"
               style={{
                 backgroundColor: "#000322",
-
+                width: "100%", // Use 100% for responsive sizing
               }}
             >
               <div className="bl-service-image-container h-52 overflow-hidden">
@@ -121,10 +121,10 @@ const ServicesSection = () => {
         {/* Center service card - 7th card */}
         <div className="bl-center-service-wrapper flex justify-center">
           <div
-            className="bl-center-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 flex flex-col pb-10 w-[60%] border-2 border-gray-400 hover:border-blue-500"
+            className="bl-center-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 flex flex-col pb-10 border-2 border-gray-400 hover:border-blue-500"
             style={{
               backgroundColor: "#000322",
-
+              width: "60%", // Desktop width
             }}
           >
             <div className="bl-center-service-image-container h-52 overflow-hidden">
@@ -160,10 +160,6 @@ const ServicesSection = () => {
           .bl-services-section {
             padding-top: 3rem;
             padding-bottom: 3rem;
-            display: flex;
-            flex-direction: column;
-            align-item: center;
-            justify-content: center;
           }
           
           .bl-services-title {
@@ -171,15 +167,15 @@ const ServicesSection = () => {
             margin-bottom: 2rem;
           }
           
-          .bl-service-card, .bl-center-service-card {
-            width: 90%;
+          .bl-service-card {
+            width: 90% !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
             margin-bottom: 2rem;
           }
 
-          .bl-center-service-card{
-            width: 90%;
-            margin-right: 10%;
-            
+          .bl-center-service-card {
+            width: 90% !important;
           }
           
           .bl-service-image-container, .bl-center-service-image-container {
@@ -203,6 +199,13 @@ const ServicesSection = () => {
           .bl-service-content, .bl-center-service-content {
             padding: 1rem;
           }
+          
+          .bl-services-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
         }
         
         /* For medium mobile devices (640px - 767px) */
@@ -217,8 +220,10 @@ const ServicesSection = () => {
             margin-bottom: 2.5rem;
           }
           
-          .bl-service-card, .bl-center-service-card {
-            width: 90% ;
+          .bl-service-card {
+            width: 90% !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
             margin-bottom: 2rem;
           }
           
@@ -240,7 +245,13 @@ const ServicesSection = () => {
           
           .bl-center-service-card {
             width: 90% !important;
-            margin-right: 10%;
+          }
+          
+          .bl-services-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
         }
         
@@ -278,7 +289,6 @@ const ServicesSection = () => {
           
           .bl-center-service-card {
             width: 40% !important;
-            
           }
         }
         
@@ -336,10 +346,8 @@ const ServicesSection = () => {
           }
 
           .bl-center-service-card{
-             width:31%;
+             width:31% !important;
           }
-          
-          
         }
         
         /* For desktop screens (1536px - 1919px) */
@@ -366,7 +374,7 @@ const ServicesSection = () => {
             height: 210px;
           }
           .bl-center-service-card{
-             width:31%;
+             width:31% !important;
           }
           
           .bl-service-title, .bl-center-service-title {

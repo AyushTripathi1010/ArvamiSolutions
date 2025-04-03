@@ -15,7 +15,7 @@ const ContactSection = () => {
         <img
           src={Bgimg}
           alt="Background"
-          className="w-full h-full object-fill"
+          className="bg-container w-full h-full object-fill"
         />
       </div>
       {/* Absolutely positioned button centered on top of images */}
@@ -34,6 +34,14 @@ const ContactSection = () => {
             height: 100vh; /* Fallback */
             height: -webkit-fill-available;
           }
+
+          .bg-container {
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+          }
+
+
         }
         
         /* For mobile devices (up to 639px) */

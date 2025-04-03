@@ -398,8 +398,8 @@ const Navbar = () => {
         /* For small mobile devices (up to 639px) */
         @media (max-width: 639px) {
           .navbar {
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
             padding-left: 1rem;
             padding-right: 1rem;
           }
@@ -435,8 +435,8 @@ const Navbar = () => {
         /* For medium mobile devices (640px - 767px) */
         @media (min-width: 640px) and (max-width: 767px) {
           .navbar {
-            padding-top: 0.875rem;
-            padding-bottom: 0.875rem;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
             padding-left: 1.5rem;
             padding-right: 1.5rem;
           }

@@ -1,33 +1,91 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect, useState, useRef } from 'react';
 import Home_img5 from '../../assets/HomePage/Home_img5.png'
-// import Home_img5_video from '../../assets/HomePage/Home_page_video.mp4'
+import Home_img5_video_mobile from '../../assets/HomePage/Home_page_video.mp4'
 import Home_img5_video from '../../assets/HomePage/Home_page_video2.mp4'
 import { ModalContext } from './HomePage';
 
 const HeroSection = () => {
   // Get openModal function from context  
   const { openModal } = useContext(ModalContext);
+  const [isMobile, setIsMobile] = useState(false);
+  const videoRef = useRef(null);
+
+  // Check if screen is mobile and update video source directly
+  useEffect(() => {
+    const checkIfMobile = () => {
+      const mobileView = window.innerWidth <= 767;
+      setIsMobile(mobileView);
+
+      // Directly update video source when size changes
+      if (videoRef.current) {
+        const videoElement = videoRef.current;
+        const currentSrc = videoElement.querySelector('source');
+        const targetSrc = mobileView ? Home_img5_video_mobile : Home_img5_video;
+
+        // Only reload if source changed
+        if (currentSrc && currentSrc.src !== targetSrc) {
+          currentSrc.src = targetSrc;
+          videoElement.load(); // Force reload with new source
+          videoElement.play().catch(err => console.error("Video play failed:", err));
+        }
+      }
+    };
+
+    // Run on initial load
+    checkIfMobile();
+
+    // Set up event listener for resize
+    window.addEventListener('resize', checkIfMobile);
+
+    // Clean up
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
+
   return (
     <div className="relative h-screen w-full flex items-center justify-center">
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <div className="video-container absolute inset-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover video-bg"
-          >
-            <source src={Home_img5_video} type="video/mp4" />
-            {/* Fallback image if video fails to load */}
-            <img
-              src={Home_img5}
-              alt="Background"
-              className="w-full h-full object-contain"
-            />
-          </video>
+          {isMobile ? (
+            // Mobile video (rendered conditionally)
+            <video
+              ref={videoRef}
+              key="mobile-video"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover video-bg"
+            >
+              <source src={Home_img5_video_mobile} type="video/mp4" />
+              <img
+                src={Home_img5}
+                alt="Background"
+                className="w-full h-full object-contain"
+              />
+            </video>
+          ) : (
+            // Desktop video
+            <video
+              ref={videoRef}
+              key="desktop-video"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover video-bg"
+            >
+              <source src={Home_img5_video} type="video/mp4" />
+              <img
+                src={Home_img5}
+                alt="Background"
+                className="w-full h-full object-contain"
+              />
+            </video>
+          )}
         </div>
         {/* Black opacity overlay */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -37,7 +95,7 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-14 mt-[-100px] hero-title">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-14 mt-[-100px] hero-title " style={{ lineHeight: '1.4' }}>
           Empowering Businesses and Individuals
         </h1>
         <p className="text-xl md:text-2xl text-white mb-10 max-w-2xl mx-auto hero-description">
