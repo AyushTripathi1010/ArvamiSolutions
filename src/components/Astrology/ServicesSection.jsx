@@ -16,8 +16,8 @@ const ServicesSection = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {/* Numerology Card */}
-                    <div className="bg-navy-800 rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-2xl hover:transform hover:scale-105 border border-gray-400" style={{ backgroundColor: "#000322" }}>
-                        <div className="h-60 overflow-hidden">
+                    <div className="bg-navy-800 rounded-3xl overflow-hidden shadow-lg transition duration-300 hover:shadow-2xl hover:transform hover:scale-105 border-2 border-gray-400 hover:border-blue-500 w-[90%]" style={{ backgroundColor: "#000322" }}>
+                        <div className="h-[17.5rem] overflow-hidden">
                             <img
                                 src={numerologyImg}
                                 alt="Numerology Readings"
@@ -50,8 +50,8 @@ const ServicesSection = () => {
                     </div>
 
                     {/* Graphology Card */}
-                    <div className="bg-navy-800 rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-2xl hover:transform hover:scale-105 border border-gray-400" style={{ backgroundColor: "#000322" }}>
-                        <div className="h-60 overflow-hidden">
+                    <div className="bg-navy-800 rounded-3xl overflow-hidden shadow-lg transition duration-300 hover:shadow-2xl hover:transform hover:scale-105 border-2 border-gray-400 hover:border-blue-500 w-[90%]" style={{ backgroundColor: "#000322" }}>
+                        <div className="h-[17.5rem] overflow-hidden">
                             <img
                                 src={graphologyImg}
                                 alt="Graphology Consultation"
@@ -84,8 +84,8 @@ const ServicesSection = () => {
                     </div>
 
                     {/* Vaastu Card */}
-                    <div className="bg-navy-800 rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-2xl hover:transform hover:scale-105 border border-gray-400" style={{ backgroundColor: "#000322" }}>
-                        <div className="h-60 overflow-hidden">
+                    <div className="bg-navy-800 rounded-3xl overflow-hidden shadow-lg transition duration-300 hover:shadow-2xl hover:transform hover:scale-105 border-2 border-gray-400 hover:border-blue-500 w-[90%]" style={{ backgroundColor: "#000322" }}>
+                        <div className="h-[17.5rem] overflow-hidden">
                             <img
                                 src={vastuImg}
                                 alt="Vaastu"

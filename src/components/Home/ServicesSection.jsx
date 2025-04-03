@@ -50,10 +50,10 @@ const ServicesSection = () => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%]"
+              className="service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%] border-2 border-gray-400 hover:border-blue-500"
               style={{
                 backgroundColor: "#000322",
-                boxShadow: "0px 0px 20px 10px rgba(60,31,122,1)"
+
               }}
             >
               <div className="service-image-container h-72 overflow-hidden">

@@ -82,10 +82,10 @@ const ServicesSection = () => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="bl-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%]"
+              className="bl-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%] border-2 border-gray-400 hover:border-blue-500"
               style={{
                 backgroundColor: "#000322",
-                boxShadow: "0px 0px 20px 10px rgba(60,31,122,1)"
+
               }}
             >
               <div className="bl-service-image-container h-52 overflow-hidden">
@@ -121,10 +121,10 @@ const ServicesSection = () => {
         {/* Center service card - 7th card */}
         <div className="bl-center-service-wrapper flex justify-center">
           <div
-            className="bl-center-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 flex flex-col pb-10 w-[60%]"
+            className="bl-center-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 flex flex-col pb-10 w-[60%] border-2 border-gray-400 hover:border-blue-500"
             style={{
               backgroundColor: "#000322",
-              boxShadow: "0px 0px 20px 10px rgba(60,31,122,1)"
+
             }}
           >
             <div className="bl-center-service-image-container h-52 overflow-hidden">

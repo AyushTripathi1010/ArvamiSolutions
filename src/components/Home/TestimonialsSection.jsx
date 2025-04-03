@@ -298,8 +298,9 @@ const TestimonialsSection = () => {
           </button>
         </div>
 
+        <div className='mt-20'></div>
         {/* Dots Navigation */}
-        <div className="flex justify-center mt-10 space-x-2 pb-12">
+        {/* <div className="flex justify-center mt-10 space-x-2 pb-12">
           {testimonials.map((_, index) => (
             <button
               key={index}
@@ -309,7 +310,7 @@ const TestimonialsSection = () => {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
-        </div>
+        </div> */}
       </div>
 
       {/* Add responsive styling */}

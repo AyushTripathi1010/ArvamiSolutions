@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-// import wallpaper from '../../assets/HomePage/Wallpaper.png';
 import Home_img5 from '../../assets/HomePage/Home_img5.png'
+// import Home_img5_video from '../../assets/HomePage/Home_page_video.mp4'
+import Home_img5_video from '../../assets/HomePage/Home_page_video2.mp4'
 import { ModalContext } from './HomePage';
 
 const HeroSection = () => {
@@ -9,13 +10,28 @@ const HeroSection = () => {
   const { openModal } = useContext(ModalContext);
   return (
     <div className="relative h-screen w-full flex items-center justify-center">
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full">
-        <img
-          src={Home_img5}
-          alt="Background"
-          className="w-full h-full object-cover"
-        />
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <div className="video-container absolute inset-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover video-bg"
+          >
+            <source src={Home_img5_video} type="video/mp4" />
+            {/* Fallback image if video fails to load */}
+            <img
+              src={Home_img5}
+              alt="Background"
+              className="w-full h-full object-contain"
+            />
+          </video>
+        </div>
+        {/* Black opacity overlay */}
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        {/* Original gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy-900 opacity-50"></div>
       </div>
 
@@ -43,6 +59,30 @@ const HeroSection = () => {
 
       {/* Media Queries */}
       <style jsx>{`
+        /* Video Background Specific Styles */
+        .video-container {
+          width: 100%;
+          height: 100%;
+        }
+
+        .video-bg {
+          min-width: 100%;
+          min-height: 100%;
+          width: 100%;
+          height: 100%;
+          object-fit: fill;
+          background-repeat: repeat;
+          background-size: auto;
+        }
+        
+        @media (max-width: 767px) {
+          .video-bg {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+
         /* For mobile devices (up to 639px) */
         @media (max-width: 639px) {
           .hero-title {
