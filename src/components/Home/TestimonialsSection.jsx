@@ -11,61 +11,14 @@ import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 // SVG Background component with proper mask scaling
 const TestimonialBackground = () => {
   return (
-    <svg
-      width="100%"
-      viewBox="0 0 1512 836"
-      preserveAspectRatio="xMidYMid slice"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
       className="absolute inset-0"
-      style={{ minHeight: "100%" }}
+      style={{
+        background: "linear-gradient(to bottom, #000322, #050E66)",
+        minHeight: "100%"
+      }}
     >
-      <g clipPath="url(#clip0_1127_1573)">
-        <rect width="1512" height="835.5" fill="white" />
-        <rect width="1512" height="850.5" fill="#F4FBF7" />
-        <g filter="url(#filter0_d_1127_1573)">
-          <rect width="1512" height="850.5" fill="#01052B" />
-          <rect width="1512" height="850.5" fill="url(#paint0_linear_1127_1573)" />
-          <rect x="0.5" y="0.5" width="1511" height="849.5" stroke="black" />
-        </g>
-        <mask id="mask0_1127_1573" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="601" width="1512" height="250">
-          <rect width="1512" height="250" transform="translate(0 601)" fill="white" />
-        </mask>
-        <g mask="url(#mask0_1127_1573)">
-          <circle cx="755.5" cy="5251.84" r="4485.5" fill="#F4FBF7" />
-        </g>
-        <mask id="mask1_1127_1573" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="-18" y="0" width="1512" height="250">
-          <g clipPath="url(#clip1_1127_1573)">
-            <rect width="1512" height="250" transform="matrix(1 0 0 -1 -18 250)" fill="white" />
-          </g>
-        </mask>
-        <g mask="url(#mask1_1127_1573)">
-          <circle cx="4485.5" cy="4485.5" r="4485.5" transform="matrix(1 0 0 -1 -3748 54.6562)" fill="white" />
-        </g>
-      </g>
-      <defs>
-        <filter id="filter0_d_1127_1573" x="-4" y="0" width="1520" height="858.5" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-          <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-          <feOffset dy="4" />
-          <feGaussianBlur stdDeviation="2" />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1127_1573" />
-          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1127_1573" result="shape" />
-        </filter>
-        <linearGradient id="paint0_linear_1127_1573" x1="756" y1="0" x2="756" y2="850.5" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#000322" />
-          <stop offset="1" stopColor="#050E66" />
-        </linearGradient>
-        <clipPath id="clip0_1127_1573">
-          <rect width="1512" height="835.5" fill="white" />
-        </clipPath>
-        <clipPath id="clip1_1127_1573">
-          <rect width="1512" height="250" fill="white" transform="matrix(1 0 0 -1 -18 250)" />
-        </clipPath>
-      </defs>
-    </svg>
+    </div>
   );
 };
 
@@ -102,7 +55,7 @@ const CenterTestimonial = ({ testimonial }) => {
     <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
       <div className="relative max-w-2xl mx-auto overflow-visible">
         <div className="bg-white rounded-2xl shadow-xl p-8 pt-20 mx-auto mt-16">
-          <div className="absolute left-1/2 -top-16 transform -translate-x-1/2 z-30">
+          <div className="profile-container absolute left-1/2 -top-16 transform -translate-x-1/2 z-30">
             <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mx-auto">
               <img
                 src={testimonial.image}
@@ -238,12 +191,21 @@ const TestimonialsSection = () => {
       <div className="absolute inset-0 w-full h-full">
         <TestimonialBackground />
       </div>
-
+      <div class="custom-shape-divider-top-1743787934">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
+        </svg>
+      </div>
+      <div class="custom-shape-divider-bottom-1743787664">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
+        </svg>
+      </div>
       {/* Content Container */}
       <div className="relative z-10">
         {/* Header */}
         <div className="container mx-auto px-6 pt-16 pb-8">
-          <h2 className="text-4xl font-bold text-white text-left md:text-left">
+          <h2 className="text-3xl font-bold text-white text-left md:text-left">
             What Our Clients Say
           </h2>
         </div>
@@ -321,6 +283,47 @@ const TestimonialsSection = () => {
       {/* Add responsive styling */}
       <style jsx>{`
         /* For mobile devices (up to 639px) */
+
+        .custom-shape-divider-top-1743787934 {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          overflow: hidden;
+          line-height: 0;
+      }
+
+      .custom-shape-divider-top-1743787934 svg {
+          position: relative;
+          display: block;
+          width: calc(100% + 1.3px);
+          height: 70px;
+      }
+
+      .custom-shape-divider-bottom-1743787664 {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          overflow: hidden;
+          line-height: 0;
+          transform: rotate(180deg);
+      }
+
+    .custom-shape-divider-bottom-1743787664 svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 70px;
+        }
+
+    .custom-shape-divider-bottom-1743787664 .shape-fill {
+        fill: #FFFFFF;
+    }
+
+.custom-shape-divider-top-1743787934 .shape-fill {
+    fill: #FFFFFF;
+}
         @media (max-width: 639px) {
           .testimonials-section {
             padding-top: 2rem;
@@ -382,6 +385,10 @@ const TestimonialsSection = () => {
           .hover\\:w-16.hover\\:h-16:hover {
             width: 2.75rem !important;
             height: 2.75rem !important;
+          }
+          
+          .profile-container{
+            top:-9%;
           }
         }
         

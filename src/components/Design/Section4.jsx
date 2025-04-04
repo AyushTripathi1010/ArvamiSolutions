@@ -126,7 +126,7 @@ const Section4 = () => {
             <ScrollAnimation direction="up" distance="50px" duration={1200} delay={index * 200} threshold={0.2}>
 
 
-              <div key={project.id} className="bg-navy-950 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-800 flex flex-col">
+              <div key={project.id} className=" rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-800 flex flex-col" style={{backgroundColor:"#000322"}}>
                 <div className="h-96 relative">
                   <img
                     src={project.image}
