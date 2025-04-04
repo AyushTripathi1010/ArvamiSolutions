@@ -6,6 +6,7 @@ import printDesignImage from '../../assets/DesignPage/Design_img13.png';
 import bgImage from '../../assets/DesignPage/Design_img7.png';
 import { ModalContext } from './DesignPage';
 import { useContext } from 'react';
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 
 const Section2 = () => {
   const { openModal } = useContext(ModalContext);
@@ -53,18 +54,68 @@ const Section2 = () => {
 
       <div className="design-container container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="design-title text-3xl font-bold text-white mb-6">
-            We bring your design vision to life efficiently and affordably. From websites and UI/UX to
-            logos and brochures, we craft impactful designs that captivate your audience.
-          </h2>
+          <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+            <h2 className="design-title text-3xl font-bold text-white mb-6">
+              We bring your design vision to life efficiently and affordably. From websites and UI/UX to
+              logos and brochures, we craft impactful designs that captivate your audience.
+            </h2>
+          </ScrollAnimation>
         </div>
 
         {/* First 3 service boxes */}
         <div className="design-grid grid grid-cols-1 md:grid-cols-3 gap-10 pl-10">
-          {services.map((service) => (
+          {services.map((service, index) => (
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={index * 200} threshold={0.2}>
+              <div
+                key={service.id}
+                className="design-card bg-navy-800 rounded-3xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%] border-2 border-gray-400 hover:border-blue-500"
+                style={{
+                  backgroundColor: "#000322",
+
+                }}
+              >
+                <div className="design-image-container h-72 overflow-hidden mb-7">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="design-image w-full h-full object-cover"
+                  />
+                </div>
+                <div className="design-content p-5 flex-grow flex flex-col justify-between">
+                  <div className="design-text-wrapper">
+                    <h3 className="design-title font-bold text-white mb-2" style={{ fontSize: '20px' }}>{service.title}</h3>
+                    <p className="design-description text-gray-300 mb-4 text-sm">{service.description}</p>
+                  </div>
+                  {service.link ? (
+                    <Link
+                      to={service.link}
+                      target="_blank"
+                      className="design-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
+                    >
+                      {service.btnText}
+                    </Link>
+                  ) : (
+                    <Link
+                      onClick={openModal}
+                      className="design-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
+                    >
+                      {service.btnText}
+                    </Link>
+                  )}
+
+
+                </div>
+              </div>
+            </ScrollAnimation>
+          ))}
+        </div>
+
+        {/* Fourth service box centered */}
+        <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+          <div className="flex justify-center mt-10">
+
             <div
-              key={service.id}
-              className="design-card bg-navy-800 rounded-3xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%] border-2 border-gray-400 hover:border-blue-500"
+              className="design-card last-grid bg-navy-800 rounded-3xl overflow-hidden transition duration-300 hover:transform hover:scale-105 flex flex-col pb-10 w-[60%] border-2 border-gray-400 hover:border-blue-500 "
               style={{
                 backgroundColor: "#000322",
 
@@ -72,69 +123,29 @@ const Section2 = () => {
             >
               <div className="design-image-container h-72 overflow-hidden mb-7">
                 <img
-                  src={service.image}
-                  alt={service.title}
+                  src={printService.image}
+                  alt={printService.title}
                   className="design-image w-full h-full object-cover"
                 />
               </div>
               <div className="design-content p-5 flex-grow flex flex-col justify-between">
                 <div className="design-text-wrapper">
-                  <h3 className="design-title font-bold text-white mb-2" style={{ fontSize: '20px' }}>{service.title}</h3>
-                  <p className="design-description text-gray-300 mb-4 text-sm">{service.description}</p>
+                  <h3 className="design-title font-bold text-white mb-2" style={{ fontSize: '20px' }}>{printService.title}</h3>
+                  <p className="design-description text-gray-300 mb-4 text-sm">{printService.description}</p>
                 </div>
-                {service.link ? (
-                  <Link
-                    to={service.link}
-                    target="_blank"
-                    className="design-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
-                  >
-                    {service.btnText}
-                  </Link>
-                ) : (
-                  <Link
-                    onClick={openModal}
-                    className="design-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
-                  >
-                    {service.btnText}
-                  </Link>
-                )}
-
-
+                <Link
+                  onClick={openModal}
+                  className="design-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
+                >
+                  {printService.btnText}
+                </Link>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Fourth service box centered */}
-        <div className="flex justify-center mt-10">
-          <div
-            className="design-card last-grid bg-navy-800 rounded-3xl overflow-hidden transition duration-300 hover:transform hover:scale-105 flex flex-col pb-10 w-[60%] border-2 border-gray-400 hover:border-blue-500 "
-            style={{
-              backgroundColor: "#000322",
 
-            }}
-          >
-            <div className="design-image-container h-72 overflow-hidden mb-7">
-              <img
-                src={printService.image}
-                alt={printService.title}
-                className="design-image w-full h-full object-cover"
-              />
-            </div>
-            <div className="design-content p-5 flex-grow flex flex-col justify-between">
-              <div className="design-text-wrapper">
-                <h3 className="design-title font-bold text-white mb-2" style={{ fontSize: '20px' }}>{printService.title}</h3>
-                <p className="design-description text-gray-300 mb-4 text-sm">{printService.description}</p>
-              </div>
-              <Link
-                onClick={openModal}
-                className="design-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
-              >
-                {printService.btnText}
-              </Link>
-            </div>
           </div>
-        </div>
+        </ScrollAnimation>
+
       </div>
 
       {/* Background design elements */}

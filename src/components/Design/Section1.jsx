@@ -7,6 +7,7 @@ import bgImage from '../../assets/DesignPage/Design_img8.png';
 import { FormatQuote } from '@mui/icons-material';
 import { useContext } from 'react';
 import { ModalContext } from './DesignPage';
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 
 const Section1 = () => {
     // Get openModal function from context  
@@ -39,71 +40,89 @@ const Section1 = () => {
             <div className="hero-container container mx-auto px-6 sm:px-10 md:px-16 lg:px-20 py-10 relative z-10">
                 <div className="hero-content-grid grid grid-cols-1 md:grid-cols-2 items-center gap-6 md:gap-10 lg:gap-20 xl:gap-40 2xl:gap-80">
                     <div className="hero-text-content text-white w-full md:w-auto lg:w-auto xl:w-[800px]">
-                        <h1 className="hero-heading font-bold mb-10" style={{
-                            fontSize: 'clamp(28px, 3.5vw, 40px)',
-                            lineHeight: '1.5'
-                        }}>
-                            A legacy of EXCELLENCE is crafted by the EXTRAORDINARY TEAMS.
-                        </h1>
-                        <p className="hero-subheading mb-8" style={{
-                            fontSize: 'clamp(18px, 2.5vw, 28px)'
-                        }}>
-                            From websites to logos, we bring your vision to life
-                        </p>
+                        <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                            <h1 className="hero-heading font-bold mb-10" style={{
+                                fontSize: 'clamp(28px, 3.5vw, 40px)',
+                                lineHeight: '1.5'
+                            }}>
+                                A legacy of EXCELLENCE is crafted by the EXTRAORDINARY TEAMS.
+                            </h1>
+                        </ScrollAnimation>
+
+                        <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                            <p className="hero-subheading mb-8" style={{
+                                fontSize: 'clamp(18px, 2.5vw, 28px)'
+                            }}>
+                                From websites to logos, we bring your vision to life
+                            </p>
+                        </ScrollAnimation>
 
                         <div className="hero-quote-container flex flex-col my-2 relative max-w-[90%]">
-                            <FormatQuote className="quote-icon-left text-white transform rotate-180 flex-shrink-0" fontSize="large" />
+                            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                                <FormatQuote className="quote-icon-left text-white transform rotate-180 flex-shrink-0" fontSize="large" />
+                            </ScrollAnimation>
 
-                            <p className="hero-quote-text px-9" style={{
-                                fontSize: 'clamp(14px, 1.8vw, 20px)',
-                                lineHeight: '1.4'
-                            }}>
-                                Design is more than aesthetics, it's about results. We blend creativity with strategy to attract, engage, and convert, driving real business impact
-                            </p>
+                            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                                <p className="hero-quote-text px-9" style={{
+                                    fontSize: 'clamp(14px, 1.8vw, 20px)',
+                                    lineHeight: '1.4'
+                                }}>
+                                    Design is more than aesthetics, it's about results. We blend creativity with strategy to attract, engage, and convert, driving real business impact
+                                </p>
+                            </ScrollAnimation>
 
-                            <div className="quote-container-2 w-full flex justify-end pr-[12%]">
-                                <FormatQuote className="quote-icon-right text-white flex-shrink-0" fontSize="large" />
-                            </div>
+                            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                                <div className="quote-container-2 w-full flex justify-end pr-[12%]">
+                                    <FormatQuote className="quote-icon-right text-white flex-shrink-0" fontSize="large" />
+                                </div>
+                            </ScrollAnimation>
                         </div>
 
-                        <button
-                            onClick={openModal}
-                            className="hero-cta-button inline-block bg-white hover:bg-[#2196F3] hover:text-white text-navy-900 font-semibold py-3 px-8 rounded-full transition duration-500"
-                            style={{ marginTop: '20px' }}
-                        >
-                            Get a Consultation
-                        </button>
+
+                        <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                            <button
+                                onClick={openModal}
+                                className="hero-cta-button inline-block bg-white hover:bg-[#2196F3] hover:text-white text-navy-900 font-semibold py-3 px-8 rounded-full transition duration-500"
+                                style={{ marginTop: '20px' }}
+                            >
+                                Get a Consultation
+                            </button>
+                        </ScrollAnimation>
                     </div>
 
-                    <div className="hero-image-container flex justify-center md:justify-end md:mr-6 lg:mr-6 xl:mr-0 2xl:mr-36 mb-14 relative">
-                        {/* Empty element to maintain the dimensions */}
-                        <div
-                            className="hero-image-placeholder w-auto h-auto max-w-[90%] md:max-w-[75%] lg:max-w-[95%] xl:max-h-[900px]"
-                            style={{
-                                maxHeight: 'clamp(350px, 80vh, 900px)',
-                                visibility: 'hidden'
-                            }}
-                        >
-                            <img src={heroImage1} alt="Placeholder" className="placeholder-img" style={{ visibility: 'hidden' }} />
-                        </div>
 
-                        {heroImages.map((image, index) => (
-                            <img
-                                key={index}
-                                src={image}
-                                alt={`Design Interface ${index + 1}`}
-                                className={`hero-image-${index} w-auto h-auto max-w-[90%] md:max-w-[75%] lg:max-w-[95%] xl:max-h-[900px] xlrounded-lg shadow-2xl`}
+                    <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                        <div className="hero-image-container flex justify-center md:justify-end md:mr-6 lg:mr-6 xl:mr-0 2xl:mr-36 mb-14 relative">
+                            {/* Empty element to maintain the dimensions */}
+                            <div
+                                className="hero-image-placeholder w-auto h-auto max-w-[90%] md:max-w-[75%] lg:max-w-[95%] xl:max-h-[900px]"
                                 style={{
                                     maxHeight: 'clamp(350px, 80vh, 900px)',
-                                    opacity: currentImageIndex === index ? 1 : 0,
-                                    transition: 'opacity 0.9s ease-in-out',
-                                    position: 'absolute',
-                                    top: 0
+                                    visibility: 'hidden'
                                 }}
-                            />
-                        ))}
-                    </div>
+                            >
+                                <img src={heroImage1} alt="Placeholder" className="placeholder-img" style={{ visibility: 'hidden' }} />
+                            </div>
+
+                            {heroImages.map((image, index) => (
+                                <img
+                                    key={index}
+                                    src={image}
+                                    alt={`Design Interface ${index + 1}`}
+                                    className={`hero-image-${index} w-auto h-auto max-w-[90%] md:max-w-[75%] lg:max-w-[95%] xl:max-h-[900px] xlrounded-lg shadow-2xl`}
+                                    style={{
+                                        maxHeight: 'clamp(350px, 80vh, 900px)',
+                                        opacity: currentImageIndex === index ? 1 : 0,
+                                        transition: 'opacity 0.9s ease-in-out',
+                                        position: 'absolute',
+                                        top: 0
+                                    }}
+                                />
+                            ))}
+                        </div>
+                    </ScrollAnimation>
                 </div>
+
             </div>
 
             {/* Network Pattern Overlay */}

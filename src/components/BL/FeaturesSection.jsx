@@ -5,6 +5,7 @@ import blImg6 from '../../assets/BusinessLegalPage/BL_img6.png';
 import blImg7 from '../../assets/BusinessLegalPage/BL_img7.png';
 import blImg8 from '../../assets/BusinessLegalPage/BL_img8.png';
 import ProcessSection from './ProcessSection';
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 
 const FeaturesSection = () => {
   const features = {
@@ -42,15 +43,21 @@ const FeaturesSection = () => {
 
       <div className="features-container container mx-auto px-6 relative z-10">
         {/* Top Feature - Compliance Focus */}
-        <h2 className="features-main-title text-3xl font-bold text-white text-center mb-14">{features.complianceFocus.title}</h2>
+        <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+
+
+          <h2 className="features-main-title text-3xl font-bold text-white text-center mb-14">{features.complianceFocus.title}</h2>
+        </ScrollAnimation>
 
         <div className="top-feature-wrapper flex justify-center mb-14">
           <div className="top-feature-image-container max-w-md">
-            <img
-              src={features.complianceFocus.image}
-              alt={features.complianceFocus.title}
-              className="top-feature-image w-full"
-            />
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+              <img
+                src={features.complianceFocus.image}
+                alt={features.complianceFocus.title}
+                className="top-feature-image w-full"
+              />
+            </ScrollAnimation>
           </div>
         </div>
 
@@ -59,34 +66,47 @@ const FeaturesSection = () => {
           <div className="middle-row flex flex-col md:flex-row justify-between mb-14">
             {/* Left Feature - Expertise */}
             <div className="left-feature md:w-1/3 mb-10 md:mb-0 flex flex-col items-center">
-              <h3 className="feature-title text-xl font-bold text-white mb-6">{features.expertise.title}</h3>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+
+
+                <h3 className="feature-title text-xl font-bold text-white mb-6">{features.expertise.title}</h3>
+              </ScrollAnimation>
               <div className="feature-image-container w-64 h-64 border border-gray-800 bg-navy-800 rounded-lg p-2">
-                <img
-                  src={features.expertise.image}
-                  alt={features.expertise.title}
-                  className="feature-image w-full h-full object-contain"
-                />
+                <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                  <img
+                    src={features.expertise.image}
+                    alt={features.expertise.title}
+                    className="feature-image w-full h-full object-contain"
+                  />
+                </ScrollAnimation>
               </div>
             </div>
 
             {/* Center Circle */}
             <div className="center-circle md:w-1/3 flex justify-center items-center mb-10 md:mb-0">
               <div className="circle-container w-64 h-64 border-2 border-gray-700 rounded-full flex items-center justify-center p-6">
-                <p className="circle-text text-white text-center">
-                  Choosing the right partner for your legal and registration needs is crucial. Here's why you can trust us:
-                </p>
+                <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                  <p className="circle-text text-white text-center">
+                    Choosing the right partner for your legal and registration needs is crucial. Here's why you can trust us:
+                  </p>
+                </ScrollAnimation>
               </div>
             </div>
 
             {/* Right Feature - Personalized Service */}
             <div className="right-feature md:w-1/3 flex flex-col items-center">
-              <h3 className="feature-title text-xl font-bold text-white mb-6">{features.personalizedService.title}</h3>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+
+                <h3 className="feature-title text-xl font-bold text-white mb-6">{features.personalizedService.title}</h3>
+              </ScrollAnimation>
               <div className="feature-image-container w-64 h-64 border border-gray-800 bg-navy-800 rounded-lg p-2">
-                <img
-                  src={features.personalizedService.image}
-                  alt={features.personalizedService.title}
-                  className="feature-image w-full h-full object-contain"
-                />
+                <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                  <img
+                    src={features.personalizedService.image}
+                    alt={features.personalizedService.title}
+                    className="feature-image w-full h-full object-contain"
+                  />
+                </ScrollAnimation>
               </div>
             </div>
           </div>
@@ -95,25 +115,36 @@ const FeaturesSection = () => {
           <div className="bottom-row flex flex-col md:flex-row justify-around">
             {/* Bottom Left Feature - Efficiency */}
             <div className="bottom-left-feature md:w-1/3 mb-10 md:mb-0 flex flex-col items-center">
-              <h3 className="feature-title text-xl font-bold text-white mb-6">{features.efficiency.title}</h3>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+
+                <h3 className="feature-title text-xl font-bold text-white mb-6">{features.efficiency.title}</h3>
+              </ScrollAnimation>
               <div className="feature-image-container w-64 h-64 border border-gray-800 bg-navy-800 rounded-lg p-2">
-                <img
-                  src={features.efficiency.image}
-                  alt={features.efficiency.title}
-                  className="feature-image w-full h-full object-contain"
-                />
+                <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                  <img
+                    src={features.efficiency.image}
+                    alt={features.efficiency.title}
+                    className="feature-image w-full h-full object-contain"
+                  />
+                </ScrollAnimation>
               </div>
             </div>
 
             {/* Bottom Right Feature - Accuracy */}
             <div className="bottom-right-feature md:w-1/3 flex flex-col items-center">
-              <h3 className="feature-title text-xl font-bold text-white mb-6">{features.accuracy.title}</h3>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+
+
+                <h3 className="feature-title text-xl font-bold text-white mb-6">{features.accuracy.title}</h3>
+              </ScrollAnimation>
               <div className="feature-image-container w-64 h-64 border border-gray-800 bg-navy-800 rounded-lg p-2">
-                <img
-                  src={features.accuracy.image}
-                  alt={features.accuracy.title}
-                  className="feature-image w-full h-full object-contain"
-                />
+                <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                  <img
+                    src={features.accuracy.image}
+                    alt={features.accuracy.title}
+                    className="feature-image w-full h-full object-contain"
+                  />
+                </ScrollAnimation>
               </div>
             </div>
           </div>

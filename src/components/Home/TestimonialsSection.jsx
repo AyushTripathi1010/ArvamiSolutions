@@ -6,6 +6,7 @@ import profile1 from '../../assets/HomePage/profile_1.jpg'
 import profile2 from '../../assets/HomePage/profile_2.jpg'
 import profile3 from '../../assets/HomePage/profile_3.jpg'
 import profile4 from '../../assets/HomePage/profile_4.jpg'
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 
 // SVG Background component with proper mask scaling
 const TestimonialBackground = () => {
@@ -98,34 +99,37 @@ const testimonials = [
 // Testimonial Card Component for center position - FIXED
 const CenterTestimonial = ({ testimonial }) => {
   return (
-    <div className="relative max-w-2xl mx-auto overflow-visible">
-      <div className="bg-white rounded-2xl shadow-xl p-8 pt-20 mx-auto mt-16">
-        <div className="absolute left-1/2 -top-0 transform -translate-x-1/2 z-30">
-          <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mx-auto">
-            <img
-              src={testimonial.image}
-              alt={testimonial.author}
-              className="w-full h-full object-cover text-white"
-            />
+    <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+      <div className="relative max-w-2xl mx-auto overflow-visible">
+        <div className="bg-white rounded-2xl shadow-xl p-8 pt-20 mx-auto mt-16">
+          <div className="absolute left-1/2 -top-16 transform -translate-x-1/2 z-30">
+            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-lg mx-auto">
+              <img
+                src={testimonial.image}
+                alt={testimonial.author}
+                className="w-full h-full object-cover text-white"
+              />
+            </div>
+          </div>
+          <div className="text-center">
+            <p className="text-blue-500 text-5xl mb-3 text-start">❝</p>
+            <p className="text-lg text-gray-700 mb-1">
+              {testimonial.text}
+            </p>
+            <p className="text-blue-500 text-5xl text-start rotate-180">❝</p>
+            <p className="font-bold text-gray-900 text-xl">{testimonial.author}</p>
+            <p className="text-sm text-gray-500">{testimonial.role}</p>
           </div>
         </div>
-        <div className="text-center">
-          <p className="text-blue-500 text-5xl mb-3 text-start">❝</p>
-          <p className="text-lg text-gray-700 mb-1">
-            {testimonial.text}
-          </p>
-          <p className="text-blue-500 text-5xl text-start rotate-180">❝</p>
-          <p className="font-bold text-gray-900 text-xl">{testimonial.author}</p>
-          <p className="text-sm text-gray-500">{testimonial.role}</p>
-        </div>
       </div>
-    </div>
+    </ScrollAnimation>
   );
 };
 
 // Testimonial Card Component for side positions - FIXED
 const SideTestimonial = ({ testimonial }) => {
   return (
+
     <div className="testimonial-card mx-auto max-w-2xl overflow-visible pt-12">
       <div className="relative">
         <div className="absolute left-1/2 -top-12 transform -translate-x-1/2 z-30">
@@ -146,6 +150,7 @@ const SideTestimonial = ({ testimonial }) => {
         </div>
       </div>
     </div>
+
   );
 };
 
@@ -162,7 +167,7 @@ const TestimonialsSection = () => {
   // slideIndex refers to index in wrappedTestimonials.
   // Start at 1 so that the first actual testimonial is centered.
   const [slideIndex, setSlideIndex] = useState(1);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
 
@@ -217,15 +222,15 @@ const TestimonialsSection = () => {
     }
   };
 
-  const handleDotClick = (index) => {
-    if (isTransitioning || index === currentIndex) return;
-    // Calculate difference
-    const diff = index - currentIndex;
-    setIsTransitioning(true);
-    setSlideIndex((prev) => prev + diff);
-    setCurrentIndex(index);
-    setTimeout(() => setIsTransitioning(false), transitionDuration);
-  };
+  // const handleDotClick = (index) => {
+  //   if (isTransitioning || index === currentIndex) return;
+  //   // Calculate difference
+  //   const diff = index - currentIndex;
+  //   setIsTransitioning(true);
+  //   setSlideIndex((prev) => prev + diff);
+  //   setCurrentIndex(index);
+  //   setTimeout(() => setIsTransitioning(false), transitionDuration);
+  // };
 
   return (
     <div className="testimonials-section relative">

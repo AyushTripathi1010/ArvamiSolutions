@@ -3,6 +3,7 @@ import blImg16 from '../../assets/BusinessLegalPage/handshake-removebg-preview.p
 import blImg17 from '../../assets/BusinessLegalPage/notebook-removebg-preview.png';
 import blImg1 from '../../assets/BusinessLegalPage/BL_img1.png'
 import { ModalContext } from './BusinessLegalPage'
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 
 const HeroSection = () => {
   const { openModal } = useContext(ModalContext);
@@ -18,53 +19,73 @@ const HeroSection = () => {
 
       {/* Handshake image */}
       <div className="handshake-wrapper absolute right-[6%] top-48 transform -translate-y-1/2 opacity-25 hidden lg:block handshake-image">
-        <img
-          src={blImg16}
-          alt="Handshake"
-          className="handshake-img h-[55vh]"
-        />
+        <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+          <img
+            src={blImg16}
+            alt="Handshake"
+            className="handshake-img h-[55vh]"
+          />
+        </ScrollAnimation>
       </div>
 
       {/* Document image */}
       <div className="document-wrapper absolute right-[-20%] bottom-8 opacity-25 hidden lg:block transform -rotate-[45deg] document-image">
-        <img
-          src={blImg17}
-          alt="Document"
-          className="document-img h-[52vh]"
-        />
+        <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+          <img
+            src={blImg17}
+            alt="Document"
+            className="document-img h-[52vh]"
+          />
+
+        </ScrollAnimation>
       </div>
 
       {/* Content Container - Left-aligned */}
       <div className="hero-content-container container mx-auto px-6 sm:px-10 md:px-16 lg:px-20 h-full relative z-10 mt-0 grid grid-cols-1 md:grid-cols-2 items-center gap-6 md:gap-10 lg:gap-20 xl:gap-40 2xl:gap-80"
         style={{ marginLeft: '7%' }}>
         <div className="hero-text-wrapper text-white w-full ">
-          <h1 style={{
-            fontSize: 'clamp(28px, 3.5vw, 40px)',
-            lineHeight: '1.5'
-          }} className="hero-heading font-bold mb-6">
-            Streamline Your Business with Our Expert Legal & Registration Services
-          </h1>
-          <p className="hero-subheading mb-10" style={{
-            fontSize: 'clamp(18px, 2.5vw, 28px)'
-          }}>
-            Simplify complex processes and focus on what matters most – growing your business.
-          </p>
+          <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+            <h1 style={{
+              fontSize: 'clamp(28px, 3.5vw, 40px)',
+              lineHeight: '1.5'
+            }} className="hero-heading font-bold mb-6">
+              Streamline Your Business with Our Expert Legal & Registration Services
+            </h1>
+
+          </ScrollAnimation>
+
+          <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+
+
+            <p className="hero-subheading mb-10" style={{
+              fontSize: 'clamp(18px, 2.5vw, 28px)'
+            }}>
+              Simplify complex processes and focus on what matters most – growing your business.
+            </p>
+
+          </ScrollAnimation>
           {/* Increased width of paragraph container */}
           <div className="hero-desc-container w-full md:w-[90%] lg:w-[85%] xl:w-[800px]">
-            <p className="hero-description text-white mb-10 text-[19px]">
-              Our team of experienced professionals specializes in a wide range of business
-              registration and legal services. We understand the intricacies of GST, PAN, TDS,
-              FSSAI, MSME, and other regulatory requirements. You can rely on us for accurate,
-              efficient, and timely processing of your essential business documents.
-            </p>
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+              <p className="hero-description text-white mb-10 text-[19px]">
+                Our team of experienced professionals specializes in a wide range of business
+                registration and legal services. We understand the intricacies of GST, PAN, TDS,
+                FSSAI, MSME, and other regulatory requirements. You can rely on us for accurate,
+                efficient, and timely processing of your essential business documents.
+              </p>
+
+            </ScrollAnimation>
           </div>
-          <button
-            onClick={openModal}
-            className="hero-cta-button inline-block bg-white hover:bg-[#2196F3] hover:text-white text-navy-900 font-semibold py-3 px-8 rounded-full transition duration-500 "
-            style={{ marginTop: '55px' }}
-          >
-            Request a Service
-          </button>
+          <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+            <button
+              onClick={openModal}
+              className="hero-cta-button inline-block bg-white hover:bg-[#2196F3] hover:text-white text-navy-900 font-semibold py-3 px-8 rounded-full transition duration-500 "
+              style={{ marginTop: '55px' }}
+            >
+              Request a Service
+            </button>
+
+          </ScrollAnimation>
         </div>
       </div>
 

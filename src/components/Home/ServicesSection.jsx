@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
 import designImg from '../../assets/HomePage/Home_img2.png';
 import legalImg from '../../assets/HomePage/Home_img3.png';
 import astrologyImg from '../../assets/HomePage/Home_img4.png';
 import wallpaper from '../../assets/HomePage/Wallpaper.png';
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 
 const ServicesSection = () => {
-  const sectionRef = useRef(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
+
 
   const services = [
     {
@@ -36,35 +35,10 @@ const ServicesSection = () => {
     }
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting && !hasAnimated) {
-          // Trigger the animation only once when section comes into view
-          setHasAnimated(true);
-        }
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.3, // When 30% of the element is visible
-      }
-    );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, [hasAnimated]);
 
   return (
-    <div ref={sectionRef} className="services-section py-20 bg-navy-900 relative">
+    <div className="services-section py-20 bg-navy-900 relative">
       {/* Background Image */}
       <div className="services-bg-wrapper absolute inset-0 w-full h-full">
         <img
@@ -78,38 +52,40 @@ const ServicesSection = () => {
         <h2 className="services-title text-3xl font-bold text-white text-center mb-16">Featured Services</h2>
 
         <div className="services-grid grid grid-cols-1 md:grid-cols-3 gap-10 ">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className={`service-card ${hasAnimated ? 'flip-card' : ''} bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%] border-2 border-gray-400 hover:border-blue-500`}
-              style={{
-                backgroundColor: "#000322",
-                perspective: "1000px", // Add 3D perspective
-              }}
-            >
-              <div className="card-inner">
-                <div className="service-image-container h-72 overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="service-image w-full h-full object-cover"
-                  />
-                </div>
-                <div className="service-content p-8 flex-grow flex flex-col justify-between">
-                  <div className="service-text-wrapper">
-                    <h3 className="service-title font-bold text-white mb-4" style={{ fontSize: '20px' }}>{service.title}</h3>
-                    <p className="service-description text-gray-300 mb-6">{service.description}</p>
+          {services.map((service, index) => (
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={index * 200} threshold={0.2}>
+              <div
+                key={service.id}
+                className={"service-card  bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 w-[95%] border-2 border-gray-400 hover:border-blue-500"}
+                style={{
+                  backgroundColor: "#000322",
+                  perspective: "1000px", // Add 3D perspective
+                }}
+              >
+                <div className="card-inner">
+                  <div className="service-image-container h-72 overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="service-image w-full h-full object-cover"
+                    />
                   </div>
-                  <a
-                    href={service.link}
-                    target='_blank'
-                    className="service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
-                  >
-                    {service.btnText}
-                  </a>
+                  <div className="service-content p-8 flex-grow flex flex-col justify-between">
+                    <div className="service-text-wrapper">
+                      <h3 className="service-title font-bold text-white mb-4" style={{ fontSize: '20px' }}>{service.title}</h3>
+                      <p className="service-description text-gray-300 mb-6">{service.description}</p>
+                    </div>
+                    <a
+                      href={service.link}
+                      target='_blank'
+                      className="service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
+                    >
+                      {service.btnText}
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

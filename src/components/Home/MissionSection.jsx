@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import missionImg from '../../assets/HomePage/Home_img1.png';
 import wallpaper from '../../assets/HomePage/Wallpaper.png';
 import { ModalContext } from './HomePage';
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 
 const MissionSection = () => {
   // Get openModal function from context  
@@ -13,36 +14,49 @@ const MissionSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <div className="rounded-lg overflow-hidden shadow-xl">
-              <img
-                src={missionImg}
-                alt="Our Mission"
-                className="w-full h-full object-cover"
-              />
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <img
+                  src={missionImg}
+                  alt="Our Mission"
+                  className="w-full h-full object-cover"
+                />
+              </ScrollAnimation>
             </div>
           </div>
 
           <div className="order-1 md:order-2">
-            <h2 className="text-3xl font-bold text-white mb-8">Our Mission</h2>
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+              <h2 className="text-3xl font-bold text-white mb-8">Our Mission</h2>
+            </ScrollAnimation>
             <div className="text-gray-300 space-y-4">
-              <p>
-                At Arvami Sol, we believe in harnessing the potential of technology and mysticism
-                to empower individuals and businesses.
-              </p>
-              <p>
-                Our team is passionate about delivering high-quality services that make a
-                difference.
-              </p>
-              <p className="mb-8">
-                Ready to transform your business or personal life? Contact us today to explore how Arvami Sol
-                can help you achieve your goals.
-              </p>
-              <button
-                onClick={openModal}
-                className="inline-block bg-white hover:bg-[#2196F3] hover:text-white text-navy-900 font-semibold py-3 px-8 rounded-full transition duration-500 "
-                style={{ marginTop: '55px' }}
-              >
-                Contact Us
-              </button>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <p>
+                  At Arvami Sol, we believe in harnessing the potential of technology and mysticism
+                  to empower individuals and businesses.
+                </p>
+              </ScrollAnimation>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <p>
+                  Our team is passionate about delivering high-quality services that make a
+                  difference.
+                </p>
+              </ScrollAnimation>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <p className="mb-8">
+                  Ready to transform your business or personal life? Contact us today to explore how Arvami Sol
+                  can help you achieve your goals.
+                </p>
+              </ScrollAnimation>
+
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <button
+                  onClick={openModal}
+                  className="inline-block bg-white hover:bg-[#2196F3] hover:text-white text-navy-900 font-semibold py-3 px-8 rounded-full transition duration-500 "
+                  style={{ marginTop: '55px' }}
+                >
+                  Contact Us
+                </button>
+              </ScrollAnimation>
             </div>
           </div>
         </div>

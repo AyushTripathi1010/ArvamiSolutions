@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 const FaqSection = () => {
   const faqs = [
     {
@@ -54,36 +54,40 @@ const FaqSection = () => {
     <div className="py-20  relative" style={{ backgroundColor: "#000322" }}>
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-white text-center mb-16">FAQs (Common Questions & Answers)</h2>
-        
+
         <div className="max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
-            <div key={faq.id} className="mb-4">
-              <button
-                className="flex items-center justify-between w-full text-left p-4 bg-navy-800 rounded-lg text-white hover:bg-navy-700 transition"
-                onClick={() => toggleFaq(index)}
-              >
-                <div className="flex items-center">
-                  <svg className="h-5 w-5 mr-3 text-primary-400" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
-                  </svg>
-                  <span>{faq.question}</span>
-                </div>
-                <svg 
-                  className={`w-5 h-5 transition-transform ${activeIndex === index ? 'rotate-180' : ''}`} 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24" 
-                  xmlns="http://www.w3.org/2000/svg"
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={index * 200} threshold={0.2}>
+
+              <div key={faq.id} className="mb-4">
+                <button
+                  className="flex items-center justify-between w-full text-left p-4 bg-navy-800 rounded-lg text-white hover:bg-navy-700 transition"
+                  onClick={() => toggleFaq(index)}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </button>
-              {activeIndex === index && (
-                <div className="mt-2 p-4 bg-navy-800 bg-opacity-50 rounded-lg text-gray-300">
-                  {faq.answer}
-                </div>
-              )}
-            </div>
+                  <div className="flex items-center">
+                    <svg className="h-5 w-5 mr-3 text-primary-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                    </svg>
+                    <span>{faq.question}</span>
+                  </div>
+                  <svg
+                    className={`w-5 h-5 transition-transform ${activeIndex === index ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                {activeIndex === index && (
+                  <div className="mt-2 p-4 bg-navy-800 bg-opacity-50 rounded-lg text-gray-300">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+
+            </ScrollAnimation>
           ))}
         </div>
       </div>

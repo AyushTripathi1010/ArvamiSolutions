@@ -2,16 +2,20 @@ import React from 'react';
 import Bgimg from '../../assets/ContactPage/Bg_img1.jpg';
 import { ModalContext } from './ContactPage';
 import { useContext } from 'react';
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 const ContactSection = () => {
   const { openModal } = useContext(ModalContext);
   return (
     <div className="w-full h-[95vh] relative" style={{ backgroundColor: "#000322" }}>
       {/* Overlayed "Contact Us" header with higher z-index */}
       <div className="absolute w-full text-center pt-12 z-10">
-        <h1 className="text-4xl md:text-5xl font-bold text-white">Contact Us</h1>
+        <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+          <h1 className="text-4xl md:text-5xl font-bold text-white">Contact Us</h1>
+        </ScrollAnimation>
       </div>
       {/* Full viewport background image */}
       <div className="absolute inset-0 w-full h-full z-0">
+
         <img
           src={Bgimg}
           alt="Background"
@@ -20,12 +24,14 @@ const ContactSection = () => {
       </div>
       {/* Absolutely positioned button centered on top of images */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none mt-[28rem]">
-        <button
-          onClick={openModal}
-          className="bg-white hover:bg-[#2196F3] hover:text-white text-navy-900 font-semibold py-3 px-8 rounded-full transition duration-500 hero-button pointer-events-auto"
-        >
-          Contact us
-        </button>
+        <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+          <button
+            onClick={openModal}
+            className="bg-white hover:bg-[#2196F3] hover:text-white text-navy-900 font-semibold py-3 px-8 rounded-full transition duration-500 hero-button pointer-events-auto"
+          >
+            Contact us
+          </button>
+        </ScrollAnimation>
       </div>
       {/* Add responsive styling for better mobile experience */}
       <style jsx>{`

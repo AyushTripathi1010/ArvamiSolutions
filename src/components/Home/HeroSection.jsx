@@ -4,6 +4,7 @@ import Home_img5 from '../../assets/HomePage/Home_img5.png'
 import Home_img5_video_mobile from '../../assets/HomePage/Home_page_video.mp4'
 import Home_img5_video from '../../assets/HomePage/Home_page_video2.mp4'
 import { ModalContext } from './HomePage';
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 
 const HeroSection = () => {
   // Get openModal function from context  
@@ -95,19 +96,27 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-14 mt-[-100px] hero-title " style={{ lineHeight: '1.4' }}>
-          Empowering Businesses and Individuals
-        </h1>
-        <p className="text-xl md:text-2xl text-white mb-10 max-w-2xl mx-auto hero-description">
-          Providing expert IT, legal, design, and personalized astrology services to help you thrive.
-        </p>
-        <button
-          onClick={openModal}
-          className="inline-block bg-white hover:bg-[#2196F3] hover:text-white text-navy-900 font-semibold py-3 px-8 rounded-full transition duration-500 hero-button"
-          style={{ marginTop: '55px' }}
-        >
-          Explore Our Services
-        </button>
+        <ScrollAnimation direction="up" distance="40px" duration={1200}>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-14 mt-[-100px] hero-title" style={{ lineHeight: '1.4' }}>
+            Empowering Businesses and Individuals
+          </h1>
+        </ScrollAnimation>
+
+        <ScrollAnimation direction="up" distance="40px" duration={1200} delay={300}>
+          <p className="text-xl md:text-2xl text-white mb-10 max-w-2xl mx-auto hero-description">
+            Providing expert IT, legal, design, and personalized astrology services to help you thrive.
+          </p>
+        </ScrollAnimation>
+
+        <ScrollAnimation direction="up" distance="40px" duration={1200} delay={600}>
+          <button
+            onClick={openModal}
+            className="inline-block bg-white hover:bg-[#2196F3] hover:text-white text-navy-900 font-semibold py-3 px-8 rounded-full transition duration-500 hero-button"
+            style={{ marginTop: '55px' }}
+          >
+            Explore Our Services
+          </button>
+        </ScrollAnimation>
       </div>
 
       {/* Network Pattern Overlay */}

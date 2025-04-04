@@ -1,5 +1,5 @@
 import blImg3 from '../../assets/BusinessLegalPage/BL_img3.png';
-
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 const ProcessSection = () => {
   const steps = [
     { id: 1, title: "Initial consultation" },
@@ -11,9 +11,12 @@ const ProcessSection = () => {
   return (
     <div className="process-section py-20 relative flex justify-center">
       <div className="process-container container mx-auto px-6 flex-col justify-center">
-        <h2 className="process-title text-3xl font-bold text-white text-center mb-20">
-          Our Process
-        </h2>
+        <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+          <h2 className="process-title text-3xl font-bold text-white text-center mb-20">
+
+            Our Process
+          </h2>
+        </ScrollAnimation>
 
         <div className="process-content max-w-5xl mx-auto">
           {/* Boxes with arrows */}
@@ -34,16 +37,18 @@ const ProcessSection = () => {
             "
           >
             {steps.map((step, index) => (
-              <div key={step.id} className="process-step-wrapper relative">
-                {/* Step box */}
-                <div className="process-step-box bg-navy-800 border border-gray-700 rounded-md py-4 px-8 w-56 text-center">
-                  <p className="process-step-text text-white font-medium">{step.title}</p>
-                </div>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={index * 200} threshold={0.2}>
 
-                {/* Arrow between steps - hidden on mobile, visible on md+ */}
-                {index < steps.length - 1 && (
-                  <div
-                    className="
+                <div key={step.id} className="process-step-wrapper relative">
+                  {/* Step box */}
+                  <div className="process-step-box bg-navy-800 border border-gray-700 rounded-md py-4 px-8 w-56 text-center">
+                    <p className="process-step-text text-white font-medium">{step.title}</p>
+                  </div>
+
+                  {/* Arrow between steps - hidden on mobile, visible on md+ */}
+                  {index < steps.length - 1 && (
+                    <div
+                      className="
                       process-arrow-horizontal
                       hidden
                       md:block
@@ -54,44 +59,44 @@ const ProcessSection = () => {
                       ml-[0px]
                       z-20
                     "
-                    style={{ width: '60px' }}
-                  >
-                    <svg
-                      className="process-arrow-svg"
-                      width="70"
-                      height="24"
-                      viewBox="0 0 60 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ width: '60px' }}
                     >
-                      {/* Horizontal line (0 -> 50 here, you can tweak) */}
-                      <path
-                        className="process-arrow-line"
-                        d="M0 12 L50 12"
-                        stroke="#3B82F6"
-                        strokeWidth="2"
-                      />
-                      {/* Arrowhead at 50 */}
-                      <path
-                        className="process-arrow-head-top"
-                        d="M50 12 L45 7"
-                        stroke="#3B82F6"
-                        strokeWidth="2"
-                      />
-                      <path
-                        className="process-arrow-head-bottom"
-                        d="M50 12 L45 17"
-                        stroke="#3B82F6"
-                        strokeWidth="2"
-                      />
-                    </svg>
-                  </div>
-                )}
+                      <svg
+                        className="process-arrow-svg"
+                        width="70"
+                        height="24"
+                        viewBox="0 0 60 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        {/* Horizontal line (0 -> 50 here, you can tweak) */}
+                        <path
+                          className="process-arrow-line"
+                          d="M0 12 L50 12"
+                          stroke="#3B82F6"
+                          strokeWidth="2"
+                        />
+                        {/* Arrowhead at 50 */}
+                        <path
+                          className="process-arrow-head-top"
+                          d="M50 12 L45 7"
+                          stroke="#3B82F6"
+                          strokeWidth="2"
+                        />
+                        <path
+                          className="process-arrow-head-bottom"
+                          d="M50 12 L45 17"
+                          stroke="#3B82F6"
+                          strokeWidth="2"
+                        />
+                      </svg>
+                    </div>
+                  )}
 
-                {/* Vertical Arrow for mobile only */}
-                {index < steps.length - 1 && (
-                  <div
-                    className="
+                  {/* Vertical Arrow for mobile only */}
+                  {index < steps.length - 1 && (
+                    <div
+                      className="
                       process-arrow-vertical
                       block
                       md:hidden
@@ -100,39 +105,40 @@ const ProcessSection = () => {
                       mb-2
                       z-20
                     "
-                  >
-                    <svg
-                      className="process-arrow-svg-vertical"
-                      width="24"
-                      height="40"
-                      viewBox="0 0 24 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      {/* Vertical line */}
-                      <path
-                        className="process-arrow-line-vertical"
-                        d="M12 0 L12 30"
-                        stroke="#3B82F6"
-                        strokeWidth="2"
-                      />
-                      {/* Arrowhead pointing down */}
-                      <path
-                        className="process-arrow-head-left"
-                        d="M12 30 L7 25"
-                        stroke="#3B82F6"
-                        strokeWidth="2"
-                      />
-                      <path
-                        className="process-arrow-head-right"
-                        d="M12 30 L17 25"
-                        stroke="#3B82F6"
-                        strokeWidth="2"
-                      />
-                    </svg>
-                  </div>
-                )}
-              </div>
+                      <svg
+                        className="process-arrow-svg-vertical"
+                        width="24"
+                        height="40"
+                        viewBox="0 0 24 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        {/* Vertical line */}
+                        <path
+                          className="process-arrow-line-vertical"
+                          d="M12 0 L12 30"
+                          stroke="#3B82F6"
+                          strokeWidth="2"
+                        />
+                        {/* Arrowhead pointing down */}
+                        <path
+                          className="process-arrow-head-left"
+                          d="M12 30 L7 25"
+                          stroke="#3B82F6"
+                          strokeWidth="2"
+                        />
+                        <path
+                          className="process-arrow-head-right"
+                          d="M12 30 L17 25"
+                          stroke="#3B82F6"
+                          strokeWidth="2"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>

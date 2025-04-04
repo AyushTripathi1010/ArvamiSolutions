@@ -5,6 +5,7 @@ import bgImage from '../../assets/DesignPage/Design_img7.png';
 import RozgarVideo from '../../assets/DesignPage/Rozgar_video.mp4';
 import GpayVideo from '../../assets/DesignPage/Gpay_video.mp4';
 import { ArrowRight } from 'lucide-react';
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 
 const Section4 = () => {
   const imageProjects = [
@@ -44,109 +45,125 @@ const Section4 = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-left mb-16">
-          <h2 className="text-3xl font-bold text-white mb-4 portfolio-heading">Portfolio</h2>
+          <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+            <h2 className="text-3xl font-bold text-white mb-4 portfolio-heading">Portfolio</h2>
+          </ScrollAnimation>
         </div>
 
         {/* First row with video projects - explicit containers */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 auto-rows-fr">
           {/* Rozgar Video Container */}
-          <div className="bg-navy-950 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-800 flex flex-col">
-            <div className="video-container h-96 relative">
-              <div className="video-wrapper absolute inset-0 flex items-center justify-center">
-                <video
-                  src={RozgarVideo}
-                  className="video-element"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-              </div>
-            </div>
-
-            <div className="p-6 flex-grow">
-              <h3 className="text-4xl font-bold text-white mb-2 project-title">Rozgar</h3>
-              <div className="flex justify-between items-center">
-                <a
-                  href="https://arvami.framer.website/case-studies/transforming-recruitment-with-ai-powered-job-matching-tracking"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition duration-300"
-                >
-                  View Case study
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Gpay Video Container */}
-          <div className="bg-navy-950 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-800 flex flex-col">
-            <div className="video-container h-96 relative">
-              <div className="video-wrapper absolute inset-0 flex items-center justify-center">
-                <video
-                  src={GpayVideo}
-                  className="video-element-gpay"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-              </div>
-            </div>
-
-            <div className="p-6 flex-grow">
-              <h3 className="text-4xl font-bold text-white mb-2 project-title">Gpay</h3>
-              <div className="flex justify-between items-center">
-                <a
-                  href="https://arvami.framer.website/case-studies/new-brand-look-and-website"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition duration-300"
-                >
-                  View Case study
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Second row with image projects */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 auto-rows-fr">
-          {imageProjects.map((project) => (
-            <div key={project.id} className="bg-navy-950 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-800 flex flex-col">
-              <div className="h-96 relative">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover"
-                />
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute bottom-4 right-4 bg-blue-500 rounded-full p-2 text-white transform -rotate-45 hover:scale-125 transition-transform ease-in-out"
-                >
-                  <ArrowRight size={20} />
-                </a>
+          <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+            <div className="bg-navy-950 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-800 flex flex-col">
+              <div className="video-container h-96 relative">
+                <div className="video-wrapper absolute inset-0 flex items-center justify-center">
+                  <video
+                    src={RozgarVideo}
+                    className="video-element"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                </div>
               </div>
 
               <div className="p-6 flex-grow">
-                <h3 className="text-4xl font-bold text-white mb-2 project-title">{project.name}</h3>
+                <h3 className="text-4xl font-bold text-white mb-2 project-title">Rozgar</h3>
+                <div className="flex justify-between items-center">
+                  <a
+                    href="https://arvami.framer.website/case-studies/transforming-recruitment-with-ai-powered-job-matching-tracking"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition duration-300"
+                  >
+                    View Case study
+                  </a>
+                </div>
               </div>
             </div>
+          </ScrollAnimation>
+
+          {/* Gpay Video Container */}
+          <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+
+
+            <div className="bg-navy-950 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-800 flex flex-col">
+              <div className="video-container h-96 relative">
+                <div className="video-wrapper absolute inset-0 flex items-center justify-center">
+                  <video
+                    src={GpayVideo}
+                    className="video-element-gpay"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                </div>
+              </div>
+
+              <div className="p-6 flex-grow">
+                <h3 className="text-4xl font-bold text-white mb-2 project-title">Gpay</h3>
+                <div className="flex justify-between items-center">
+                  <a
+                    href="https://arvami.framer.website/case-studies/new-brand-look-and-website"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition duration-300"
+                  >
+                    View Case study
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ScrollAnimation>
+        </div>
+
+
+        {/* Second row with image projects */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 auto-rows-fr">
+          {imageProjects.map((project, index) => (
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={index * 200} threshold={0.2}>
+
+
+              <div key={project.id} className="bg-navy-950 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 border border-gray-800 flex flex-col">
+                <div className="h-96 relative">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-4 right-4 bg-blue-500 rounded-full p-2 text-white transform -rotate-45 hover:scale-125 transition-transform ease-in-out"
+                  >
+                    <ArrowRight size={20} />
+                  </a>
+                </div>
+
+                <div className="p-6 flex-grow">
+                  <h3 className="text-4xl font-bold text-white mb-2 project-title">{project.name}</h3>
+                </div>
+              </div>
+            </ScrollAnimation>
           ))}
+
         </div>
 
         {/* View Portfolio button */}
         <div className="flex justify-center ">
-          <a
-            href="https://arvami.framer.website/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white hover:bg-blue-500 text-navy-900 font-semibold hover:text-white py-3 px-10 border border-white hover:border-transparent rounded-full transition duration-500 inline-block"
-          >
-            View Portfolio
-          </a>
+          <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+            <a
+              href="https://arvami.framer.website/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white hover:bg-blue-500 text-navy-900 font-semibold hover:text-white py-3 px-10 border border-white hover:border-transparent rounded-full transition duration-500 inline-block"
+            >
+              View Portfolio
+            </a>
+          </ScrollAnimation>
         </div>
       </div>
 

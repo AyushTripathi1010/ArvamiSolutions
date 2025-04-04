@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
-
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,7 +86,9 @@ const Navbar = () => {
     >
       <div className="navbar-container container mx-auto flex items-center justify-between">
         <Link to="/" className="navbar-logo flex items-center" onClick={() => handleRouteChange('/')}>
-          <img src={logo} alt="Arvami Logo" className="logo-image h-12" />
+          <ScrollAnimation direction="up" distance="40px" duration={1200} delay={200} threshold={0.2}>
+            <img src={logo} alt="Arvami Logo" className="logo-image h-12" />
+          </ScrollAnimation>
         </Link>
 
         {/* Desktop Menu */}
@@ -98,10 +100,14 @@ const Navbar = () => {
               className={`navbar-link ${activeRoute.startsWith('/design') ? 'text-blue-300' : 'text-white'} hover:text-blue-300 transition duration-300 flex items-center`}
               onClick={() => handleRouteChange('/design')}
             >
-              <span className="navbar-link-text">Design</span>
-              <svg className="navbar-dropdown-icon w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <span className="navbar-link-text">Design</span>
+              </ScrollAnimation>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <svg className="navbar-dropdown-icon w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </ScrollAnimation>
             </Link>
             <div className="navbar-dropdown absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
               <div className="navbar-dropdown-items py-1">
@@ -126,10 +132,14 @@ const Navbar = () => {
               className={`navbar-link ${activeRoute.startsWith('/business-registrations-legal') ? 'text-blue-300' : 'text-white'} hover:text-blue-300 transition duration-300 flex items-center`}
               onClick={() => handleRouteChange('/business-registrations-legal')}
             >
-              <span className="navbar-link-text">Business Registrations & Legal</span>
-              <svg className="navbar-dropdown-icon w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <span className="navbar-link-text">Business Registrations & Legal</span>
+              </ScrollAnimation>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <svg className="navbar-dropdown-icon w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </ScrollAnimation>
             </Link>
             <div className="navbar-dropdown absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
               <div className="navbar-dropdown-items py-1">
@@ -154,10 +164,14 @@ const Navbar = () => {
               className={`navbar-link ${activeRoute.startsWith('/astrology') ? 'text-blue-300' : 'text-white'} hover:text-blue-300 transition duration-300 flex items-center`}
               onClick={() => handleRouteChange('/astrology')}
             >
-              <span className="navbar-link-text">Astrology</span>
-              <svg className="navbar-dropdown-icon w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-              </svg>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <span className="navbar-link-text">Astrology</span>
+              </ScrollAnimation>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <svg className="navbar-dropdown-icon w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </ScrollAnimation>
             </Link>
             <div className="navbar-dropdown absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg z-20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
               <div className="navbar-dropdown-items py-1">
@@ -180,14 +194,18 @@ const Navbar = () => {
             className={`navbar-link ${activeRoute === '/about' ? 'text-blue-300' : 'text-white'} hover:text-blue-300 transition duration-300`}
             onClick={() => handleRouteChange('/about')}
           >
-            <span className="navbar-link-text">About</span>
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+              <span className="navbar-link-text">About</span>
+            </ScrollAnimation>
           </Link>
           <Link
             to="/contact-us"
             className={`navbar-link ${activeRoute === '/contact-us' ? 'text-blue-300' : 'text-white'} hover:text-blue-300 transition duration-300`}
             onClick={() => handleRouteChange('/contact-us')}
           >
-            <span className="navbar-link-text">Contact Us</span>
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+              <span className="navbar-link-text">Contact Us</span>
+            </ScrollAnimation>
           </Link>
         </div>
 
@@ -198,19 +216,21 @@ const Navbar = () => {
             className="mobile-menu-button text-white focus:outline-none"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            <svg
-              className="mobile-menu-icon w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-              )}
-            </svg>
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+              <svg
+                className="mobile-menu-icon w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                )}
+              </svg>
+            </ScrollAnimation>
           </button>
         </div>
       </div>

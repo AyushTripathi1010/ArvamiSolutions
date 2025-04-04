@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import aboutImg1 from '../../assets/AboutPage/About_img1.png';
-
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 const AboutPage = () => {
   // Scroll to top when component mounts
   useEffect(() => {
@@ -24,38 +24,59 @@ const AboutPage = () => {
       <div className="about-story-section py-16" style={{ backgroundColor: "#000322" }}>
         <div className="about-story-container container mx-auto px-6 max-w-4xl">
           <div className="about-story-card rounded-lg p-10 md:p-16 shadow-xl border border-gray-400" style={{ backgroundColor: "#000322" }}>
-            <p className="about-story-paragraph text-white mb-8 leading-relaxed">
-              My journey to creating Arvami Solutions wasn't linear. Like many
-              women, I took a career break to focus on family. Returning to
-              work was tougher than expected—I saw talented women
-              struggling to find opportunities despite their skills. This
-              realization sparked my vision: a platform that simplifies business
-              services while empowering women re-entering the workforce.
-            </p>
 
-            <p className="about-story-paragraph text-white mb-8 leading-relaxed">
-              At Arvami Solutions, we provide a one-stop solution for
-              businesses—offering GST registration, legal assistance, website
-              design, branding, and even astrological guidance. Our mission is
-              twofold: streamlining business operations and creating flexible
-              work opportunities for women. Our team includes professionals
-              who've restarted their careers, and we support them with
-              training, mentorship, and work-life balance.
-            </p>
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+              <p className="about-story-paragraph text-white mb-8 leading-relaxed">
+                My journey to creating Arvami Solutions wasn't linear. Like many
+                women, I took a career break to focus on family. Returning to
+                work was tougher than expected—I saw talented women
+                struggling to find opportunities despite their skills. This
+                realization sparked my vision: a platform that simplifies business
+                services while empowering women re-entering the workforce.
+              </p>
 
-            <p className="about-story-paragraph text-white mb-10 leading-relaxed">
-              By empowering women, we strengthen businesses and
-              communities. At Arvami Solutions, we handle the complexities
-              so you can focus on growing your business. Let's build success
-              —together.
-            </p>
+            </ScrollAnimation>
+
+
+
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+
+              <p className="about-story-paragraph text-white mb-8 leading-relaxed">
+                At Arvami Solutions, we provide a one-stop solution for
+                businesses—offering GST registration, legal assistance, website
+                design, branding, and even astrological guidance. Our mission is
+                twofold: streamlining business operations and creating flexible
+                work opportunities for women. Our team includes professionals
+                who've restarted their careers, and we support them with
+                training, mentorship, and work-life balance.
+              </p>
+
+            </ScrollAnimation>
+
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+
+              <p className="about-story-paragraph text-white mb-10 leading-relaxed">
+                By empowering women, we strengthen businesses and
+                communities. At Arvami Solutions, we handle the complexities
+                so you can focus on growing your business. Let's build success
+                —together.
+              </p>
+
+            </ScrollAnimation>
 
             <div className="about-founder-info border-t border-gray-700 pt-8">
-              <h3 className="founder-name text-white text-xl font-semibold">Chhaya Poojary</h3>
-              <p className="founder-designation text-gray-400">Founder & CEO</p>
-
-              <h3 className="cofounder-name text-white text-xl font-semibold mt-4">Shradha Tiwari</h3>
-              <p className="cofounder-designation text-gray-400">Co-Founder</p>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <h3 className="founder-name text-white text-xl font-semibold">Chhaya Poojary</h3>
+              </ScrollAnimation>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <p className="founder-designation text-gray-400">Founder & CEO</p>
+              </ScrollAnimation>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <h3 className="cofounder-name text-white text-xl font-semibold mt-4">Shradha Tiwari</h3>
+              </ScrollAnimation>
+              <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+                <p className="cofounder-designation text-gray-400">Co-Founder</p>
+              </ScrollAnimation>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ import blImg12 from '../../assets/BusinessLegalPage/BL_img12.png';
 import blImg13 from '../../assets/BusinessLegalPage/BL_img13.png';
 import blImg14 from '../../assets/BusinessLegalPage/BL_img14.png';
 import blImg15 from '../../assets/BusinessLegalPage/BL_img15.png';
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 
 const ServicesSection = () => {
   const services = [
@@ -79,79 +80,88 @@ const ServicesSection = () => {
 
         {/* Grid for first 6 services (3x2) */}
         <div className="bl-services-grid grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className="bl-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 border-2 border-gray-400 hover:border-blue-500 mx-auto"
-              style={{
-                backgroundColor: "#000322",
-                width: "100%", // Use 100% for responsive sizing
-              }}
-            >
-              <div className="bl-service-image-container h-52 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="bl-service-image w-full h-full object-cover"
-                />
+          {services.map((service, index) => (
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={index * 200} threshold={0.2}>
+
+              <div
+                key={service.id}
+                className="bl-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 h-full flex flex-col pb-10 border-2 border-gray-400 hover:border-blue-500 mx-auto"
+                style={{
+                  backgroundColor: "#000322",
+                  width: "100%", // Use 100% for responsive sizing
+                }}
+              >
+                <div className="bl-service-image-container h-52 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="bl-service-image w-full h-full object-cover"
+                  />
+                </div>
+                <div className="bl-service-content p-6 flex flex-col flex-grow">
+                  <h3 className="bl-service-title font-bold text-white mb-4" style={{ fontSize: '20px' }}>{service.title}</h3>
+                  {service.listStyle ? (
+                    <ul className="bl-service-description-list text-gray-300 mb-6 space-y-2 flex-grow">
+                      <li className="bl-service-description-item flex items-start">
+                        <span className="bl-service-bullet mr-2">•</span>
+                        <span className="bl-service-description-text">{service.description}</span>
+                      </li>
+                    </ul>
+                  ) : (
+                    <p className="bl-service-description text-gray-300 mb-6 flex-grow">{service.description}</p>
+                  )}
+                  <Link
+                    to={service.link}
+                    className="bl-service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
+                  >
+                    {service.action}
+                  </Link>
+                </div>
               </div>
-              <div className="bl-service-content p-6 flex flex-col flex-grow">
-                <h3 className="bl-service-title font-bold text-white mb-4" style={{ fontSize: '20px' }}>{service.title}</h3>
-                {service.listStyle ? (
-                  <ul className="bl-service-description-list text-gray-300 mb-6 space-y-2 flex-grow">
-                    <li className="bl-service-description-item flex items-start">
-                      <span className="bl-service-bullet mr-2">•</span>
-                      <span className="bl-service-description-text">{service.description}</span>
-                    </li>
-                  </ul>
-                ) : (
-                  <p className="bl-service-description text-gray-300 mb-6 flex-grow">{service.description}</p>
-                )}
-                <Link
-                  to={service.link}
-                  className="bl-service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
-                >
-                  {service.action}
-                </Link>
-              </div>
-            </div>
+
+            </ScrollAnimation>
           ))}
         </div>
 
         {/* Center service card - 7th card */}
-        <div className="bl-center-service-wrapper flex justify-center">
-          <div
-            className="bl-center-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 flex flex-col pb-10 border-2 border-gray-400 hover:border-blue-500"
-            style={{
-              backgroundColor: "#000322",
-              width: "60%", // Desktop width
-            }}
-          >
-            <div className="bl-center-service-image-container h-52 overflow-hidden">
-              <img
-                src={centerService.image}
-                alt={centerService.title}
-                className="bl-center-service-image w-full h-full object-cover"
-              />
-            </div>
-            <div className="bl-center-service-content p-6 flex flex-col flex-grow">
-              <h3 className="bl-center-service-title font-bold text-white mb-4" style={{ fontSize: '20px' }}>{centerService.title}</h3>
-              <ul className="bl-center-service-description-list text-gray-300 mb-6 space-y-2 flex-grow">
-                <li className="bl-center-service-description-item flex items-start">
-                  <span className="bl-center-service-bullet mr-2">•</span>
-                  <span className="bl-center-service-description-text">{centerService.description}</span>
-                </li>
-              </ul>
-              <Link
-                to={centerService.link}
-                className="bl-center-service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
-              >
-                {centerService.action}
-              </Link>
+        <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+
+          <div className="bl-center-service-wrapper flex justify-center">
+            <div
+              className="bl-center-service-card bg-navy-800 rounded-xl overflow-hidden transition duration-300 hover:transform hover:scale-105 flex flex-col pb-10 border-2 border-gray-400 hover:border-blue-500"
+              style={{
+                backgroundColor: "#000322",
+                width: "60%", // Desktop width
+              }}
+            >
+              <div className="bl-center-service-image-container h-52 overflow-hidden">
+                <img
+                  src={centerService.image}
+                  alt={centerService.title}
+                  className="bl-center-service-image w-full h-full object-cover"
+                />
+              </div>
+              <div className="bl-center-service-content p-6 flex flex-col flex-grow">
+                <h3 className="bl-center-service-title font-bold text-white mb-4" style={{ fontSize: '20px' }}>{centerService.title}</h3>
+                <ul className="bl-center-service-description-list text-gray-300 mb-6 space-y-2 flex-grow">
+                  <li className="bl-center-service-description-item flex items-start">
+                    <span className="bl-center-service-bullet mr-2">•</span>
+                    <span className="bl-center-service-description-text">{centerService.description}</span>
+                  </li>
+                </ul>
+                <Link
+                  to={centerService.link}
+                  className="bl-center-service-link inline-block text-sm text-primary-400 hover:text-primary-300 mt-auto"
+                >
+                  {centerService.action}
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+
+        </ScrollAnimation>
       </div>
+
 
       {/* Add responsive styling */}
       <style jsx>{`

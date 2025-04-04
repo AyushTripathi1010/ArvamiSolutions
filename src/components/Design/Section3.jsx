@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import whyChooseImage from '../../assets/DesignPage/Design_img9.png';
 import bgImage from '../../assets/DesignPage/Design_img7.png';
+import ScrollAnimation from '../hooks/ScrollAnimation.jsx';
 
 const Section3 = () => {
   const reasons = [
@@ -25,28 +26,37 @@ const Section3 = () => {
       <div className="container mx-auto px-6 relative z-10 mt-14 content-container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center content-grid">
           <div className="text-white left-content">
-            <h2 className="text-3xl font-bold mb-8 reason-heading" style={{ lineHeight: '1.3' }}>Why Choose Arvami Solutions?</h2>
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+              <h2 className="text-3xl font-bold mb-8 reason-heading" style={{ lineHeight: '1.3' }}>Why Choose Arvami Solutions?</h2>
+            </ScrollAnimation>
 
             <div className="space-y-6 reasons-container">
-              {reasons.map((reason) => (
-                <div key={reason.id} className="flex items-start reason-item py-4">
-                  <div className="mr-4 mt-1 flex-shrink-0 icon-container">
-                    <svg className="h-5 w-5 text-primary-400 reason-icon" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
-                    </svg>
+              {reasons.map((reason, index) => (
+                <ScrollAnimation direction="up" distance="50px" duration={1200} delay={index * 200} threshold={0.2}>
+
+                  <div key={reason.id} className="flex items-start reason-item py-4">
+                    <div className="mr-4 mt-1 flex-shrink-0 icon-container">
+                      <svg className="h-5 w-5 text-primary-400 reason-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <p className="text-xl reason-text">{reason.text}</p>
                   </div>
-                  <p className="text-xl reason-text">{reason.text}</p>
-                </div>
+                </ScrollAnimation>
+
               ))}
             </div>
           </div>
 
           <div className="mt-10 md:mt-0 image-container">
-            <img
-              src={whyChooseImage}
-              alt="Why Choose Us"
-              className="w-full h-auto rounded-lg shadow-2xl reason-image"
-            />
+            <ScrollAnimation direction="up" distance="50px" duration={1200} delay={200} threshold={0.2}>
+              <img
+                src={whyChooseImage}
+                alt="Why Choose Us"
+                className="w-full h-auto rounded-lg shadow-2xl reason-image"
+              />
+            </ScrollAnimation>
+
           </div>
         </div>
       </div>
